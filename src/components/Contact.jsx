@@ -39,8 +39,8 @@ const Contact = () => {
       return;
     }
 
-    // Target email from Aravind's portfolio brief
-    const recipientEmail = "aravind.durgaraj@gmail.com";
+    // Target email from Abhishek's portfolio brief
+    const recipientEmail = "abhishekiitg1@gmail.com";
     const subject = encodeURIComponent(`Portfolio Message from ${formData.firstName} ${formData.lastName}`);
     const body = encodeURIComponent(
       `Name: ${formData.firstName} ${formData.lastName}\n` +
@@ -84,15 +84,15 @@ const Contact = () => {
         >
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-12 md:mb-16 gap-4">
             <div className="text-xs font-bold tracking-[0.2em] uppercase opacity-90">
-              Reach Us
+              Get In Touch
             </div>
             {/* Added Contact Info Display */}
             <div className="flex flex-wrap items-center gap-6 text-xs md:text-sm font-bold opacity-90">
-              <a href="mailto:aravind.durgaraj@gmail.com" className="hover:underline flex items-center gap-1.5">
-                <span>✉️</span> aravind.durgaraj@gmail.com
+              <a href="mailto:abhishekiitg1@gmail.com" className="hover:underline flex items-center gap-1.5">
+                <span>✉️</span> abhishekiitg1@gmail.com
               </a>
-              <a href="tel:+918056462078" className="hover:underline flex items-center gap-1.5">
-                <span>📞</span> +91 80564 62078
+              <a href="tel:+916392359603" className="hover:underline flex items-center gap-1.5">
+                <span>📞</span> +91-6392359603
               </a>
             </div>
           </div>

@@ -3,63 +3,116 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 const projectData = [
+  // 1. DATA SCIENCE & ML — PRIMARY
   {
-    title: "LLM Evaluation Suite",
-    category: "AI • LLM Evaluation",
-    description: "A 50-case evaluation suite covering instruction following, refusal calibration, and JSON validity using deterministic scorers and an LLM-as-judge validated against human labels.",
-    github: "https://github.com/aravinddurgaraj",
+    title: "RetailIQ",
+    category: "Data Science & ML • Customer Intelligence",
+    description: "Built an end-to-end customer intelligence pipeline using PostgreSQL, SQL and Python. Engineered RFM and behavioral features across 8K customers, developed Logistic Regression and Random Forest churn models, and optimized targeting under budget constraints to yield ₹16.66M expected revenue.",
+    github: "https://github.com/abhishekkumargond",
     demo: "#",
-    tags: ["Promptfoo", "Python", "Anthropic Claude API"],
+    tags: ["Python", "PostgreSQL", "Scikit-learn", "Power BI"],
   },
   {
-    title: "AI-Assisted PR Code-Review Agent",
-    category: "AI Agents • Code Analysis",
-    description: "An internal POC agent that constructs repository dependency graphs to reason about change ripples and risk-tiers pull requests for streamlined, intelligent code reviews.",
-    github: "https://github.com/aravinddurgaraj",
+    title: "ImpactIQ",
+    category: "Data Science & ML • Uplift Optimization",
+    description: "Analyzed a 64K-customer randomized experiment to estimate treatment effects. Implemented S, T, and X-learners with Qini analysis (X-learner achieved strongest Qini AUC of 0.038), achieving an 87% relative conversion lift (0.57% to 1.07%) through profit-aware targeting policies.",
+    github: "https://github.com/abhishekkumargond",
     demo: "#",
-    tags: ["LLM Agent", "Dependency Graph", "Java"],
+    tags: ["Causal ML", "X-learners", "Qini Analysis", "Python"],
   },
   {
-    title: "Production AI Application Platform",
-    category: "Production SaaS • AI",
-    description: "A live platform serving ~20,000 users where natural language inputs are transformed into working React frontend applications via prompt-routing and end-to-end Cucumber BDD testing.",
-    github: "https://github.com/aravinddurgaraj",
+    title: "RevenueIQ",
+    category: "Data Science & ML • SaaS Analytics",
+    description: "Built an end-to-end SaaS analytics platform featuring an automated ETL pipeline and SQL data warehouse. Delivered executive-level KPI reporting for cohort retention, churn, CLV, MRR, ARR, and ARPU via Streamlit and Power BI dashboards.",
+    github: "https://github.com/abhishekkumargond",
     demo: "#",
-    tags: ["React", "Zoho Catalyst", "Cucumber BDD", "LLM Routing"],
+    tags: ["ETL Pipeline", "SQL", "Streamlit", "Power BI"],
   },
   {
-    title: "High-Traffic Public Signup Platform",
-    category: "Performance • Load Testing",
-    description: "Conducted end-to-end functional testing and built Apache JMeter load-test plans simulating 10,000 concurrent users to absorb sharply-peaked signup spikes at launch.",
-    github: "https://github.com/aravinddurgaraj",
+    title: "StockSense AI",
+    category: "Data Science & ML • Demand Forecasting",
+    description: "Built demand forecasting pipelines comparing SARIMAX, Random Forest, XGBoost, and LSTM models—achieving up to 67.60% MAPE improvement. Optimized (s,Q) and (R,S) inventory policies via 10,000 Monte Carlo simulations to maintain 99.16%–100% fill rates.",
+    github: "https://github.com/abhishekkumargond",
     demo: "#",
-    tags: ["Apache JMeter", "Load Testing", "Functional Testing"],
+    tags: ["LSTM", "XGBoost", "Monte Carlo", "Stochastic Simulation"],
+  },
+
+  // 2. PRODUCT MANAGEMENT — SECONDARY
+  {
+    title: "MoneyFlow",
+    category: "Product Management • FinTech Strategy",
+    description: "Addressed financial friction for students and early-career professionals by defining Jobs-To-Be-Done (JTBD) and prioritizing MVP capabilities using RICE. Designed an activation-led growth loop targeting 45% 7-day actionable check-ins.",
+    github: "https://github.com/abhishekkumargond",
+    demo: "#",
+    tags: ["JTBD", "RICE", "MVP", "FinTech Strategy"],
   },
   {
-    title: "AI UI-Automation Tool",
-    category: "Internal Tool • UI Automation",
-    description: "An internal tool translating human-readable plain natural language test cases into structured, executable UI test actions via advanced prompt design.",
-    github: "https://github.com/aravinddurgaraj",
+    title: "ProductLab AI",
+    category: "Product Management • Discovery Platform",
+    description: "Designed an AI-assisted discovery workflow converting research evidence into personas, hypotheses, and controlled A/B experiments. Enforced deterministic analytics and schema validation to prevent unvalidated synthetic metrics from mimicking product-market fit.",
+    github: "https://github.com/abhishekkumargond",
     demo: "#",
-    tags: ["Prompt Engineering", "UI Automation"],
+    tags: ["Product Discovery", "A/B Testing", "LLM Evaluation", "Validation"],
   },
   {
-    title: "Code-Graph RAG Assistant",
-    category: "RAG • Code Intelligence",
-    description: "A retrieval-augmented generation assistant over large Java codebases using a code-graph representation to account for structural relationships rather than simple text similarity.",
-    github: "https://github.com/aravinddurgaraj",
+    title: "LaunchPilot AI",
+    category: "Product Management • Launch Decision OS",
+    description: "Designed a 5-gate AI product launch framework covering customer value, AI quality, trust & safety, and operational readiness. Quantified launch risk using Likelihood x Impact Exposure to structure GO/ITERATE/NO-GO executive workflows.",
+    github: "https://github.com/abhishekkumargond",
     demo: "#",
-    tags: ["RAG", "Graph Retrieval", "Java"],
+    tags: ["AI Quality", "Risk Management", "GTM", "Framework Design"],
+  },
+  {
+    title: "CampusOS AI",
+    category: "Product Management • Campus Operating System",
+    description: "Defined an AI-native campus copilot as an initial product wedge to tackle fragmented navigation across 10+ portals. Prioritized citation-based answers and confidence-gated escalation, targeting a 30% ticket deflection across departments.",
+    github: "https://github.com/abhishekkumargond",
+    demo: "#",
+    tags: ["AI Copilot", "Roadmapping", "Product Metrics", "EdTech"],
+  },
+
+  // 3. CORE CHEMICAL ENGINEERING — THIRD
+  {
+    title: "Naphtha HDS",
+    category: "Chemical Engineering • Process Simulation",
+    description: "Developed a component-level steady-state hydrodesulfurization (HDS) model for a 3,000 kg/h naphtha feed using stoichiometric material balances and LMTD heat-recovery design. Optimized reactor temperature via constrained grid search to reach 10 ppm product sulfur.",
+    github: "https://github.com/abhishekkumargond",
+    demo: "#",
+    tags: ["Process Simulation", "Heat Recovery", "Optimization", "LMTD"],
+  },
+  {
+    title: "Dynamic CSTR Modeling & Control",
+    category: "Chemical Engineering • Advanced Control",
+    description: "Developed a first-principles nonlinear dynamic CSTR model using mass/energy balances and Arrhenius kinetics. Designed and tuned P, PI, and PID controllers featuring anti-windup and derivative filtering to achieve stable 302 K setpoint tracking.",
+    github: "https://github.com/abhishekkumargond",
+    demo: "#",
+    tags: ["MATLAB/Simulink", "Aspen Plus", "Nonlinear Dynamics", "PID Control"],
+  },
+  {
+    title: "Green Ammonia Process Design",
+    category: "Chemical Engineering • Techno-Economic Optimization",
+    description: "Designed an integrated green ammonia process (2,500 kg/h target) covering H2 production, N2 separation, and Haber-Bosch synthesis. Performed rigorous sensitivity analysis and reduced screening-level levelized cost of ammonia ($1,025/t to $665/t NH3).",
+    github: "https://github.com/abhishekkumargond",
+    demo: "#",
+    tags: ["Aspen Plus", "Techno-Economic Modeling", "Haber-Bosch", "Python"],
+  },
+  {
+    title: "Capillary Filling Dynamics",
+    category: "Chemical Engineering • Mathematical Modeling",
+    description: "Developed a first-principles mathematical model for capillary-driven liquid filling in non-uniform microchannels. Incorporated channel geometry, capillary pressure, and viscous resistance to analyze transient meniscus motion and parameter sensitivity.",
+    github: "https://github.com/abhishekkumargond",
+    demo: "#",
+    tags: ["Mathematical Modeling", "Numerical Methods", "Transport Phenomena"],
   },
 ];
 
 const otherMiniProjects = [
-  { title: "LLM-Based Test Generation", lang: "Python" },
-  { title: "Zoho Catalyst Serverless QA Suite", lang: "Java" },
-  { title: "Selenium Grid CI Regression Pipeline", lang: "Selenium" },
-  { title: "API Endpoint Validation Harness", lang: "Rest Assured" },
-  { title: "Record-and-Run Defect Tracker", lang: "Tooling" },
-  { title: "Enterprise Insurance Claim Test Plans", lang: "HP ALM" },
+  { title: "Brahmaputra Hostel SPARDHA Management", lang: "Leadership" },
+  { title: "Intra-Hostel Cricket Tournaments", lang: "Sports" },
+  { title: "NSS Blood Camp & Cleanliness Drive", lang: "NSS CoS" },
+  { title: "Hostel Independence & Republic Day Parades", lang: "Cultural" },
+  { title: "Flipkart GRiD 7.0 Semi-Final Pipeline", lang: "Competition" },
+  { title: "Data Analyst Sandbox Repository", lang: "Analytics" },
 ];
 
 const Projects = () => {
@@ -81,7 +134,7 @@ const Projects = () => {
         {/* Section Header */}
         <div className="mb-20 relative max-w-2xl" data-aos="fade-up">
           <div className="inline-block border border-gray-300 rounded-full px-5 py-1.5 text-sm text-gray-600 font-bold mb-8 shadow-sm bg-white">
-            Featured Work
+            Featured Projects
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-[1.1] mb-6 tracking-tight relative">
             Projects That Define My Journey
@@ -90,7 +143,7 @@ const Projects = () => {
             </svg>
           </h2>
           <p className="text-gray-500 text-base md:text-lg font-medium leading-relaxed mt-8">
-            A curated portfolio of quality platforms, test automation frameworks, CI/CD pipelines, and practical AI/LLM evaluation tooling.
+            A curated portfolio spanning data science & machine learning engines, product management frameworks, and core chemical engineering simulations.
           </p>
         </div>
 
@@ -148,7 +201,7 @@ const Projects = () => {
                         rel="noreferrer"
                         className="text-xs font-black text-gray-900 hover:text-[#ff2a2a] inline-flex items-center gap-1 transition-colors duration-300"
                       >
-                        Source Code
+                        GitHub Repository
                         <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
                         </svg>
@@ -165,7 +218,7 @@ const Projects = () => {
         <div className="mt-28">
           <div className="flex items-center gap-4 mb-10" data-aos="fade-up">
             <h3 className="text-2xl md:text-3xl font-black tracking-tight text-gray-900">
-              System Logs & Other Repositories
+              Leadership & Co-Curricular Logs
             </h3>
             <div className="h-[1px] bg-gray-200 flex-grow" />
           </div>
@@ -183,7 +236,7 @@ const Projects = () => {
                     {project.title}
                   </h4>
                   <span className="text-[11px] font-medium text-gray-400 block mt-1">
-                    Repository Node Engine
+                    IIT Guwahati Record
                   </span>
                 </div>
                 <span className="px-2.5 py-1 rounded-full text-[10px] font-extrabold bg-gray-100 text-gray-500 border border-gray-200/50 group-hover:bg-red-50 group-hover:text-[#ff2a2a] group-hover:border-red-100 transition-colors duration-300">
@@ -197,7 +250,7 @@ const Projects = () => {
         {/* Signature Organic Hand-drawn Accent */}
         <div data-aos="fade-in" className="text-center mt-20 relative">
           <div className="font-['Caveat',cursive] text-3xl text-gray-500 inline-block transform rotate-1">
-            Reviewing architecture matrices continuous...
+            Analyzing data, modeling systems, scaling impact...
           </div>
         </div>
 

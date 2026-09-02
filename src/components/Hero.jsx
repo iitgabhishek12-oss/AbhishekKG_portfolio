@@ -61,9 +61,9 @@ const Hero = () => {
             data-aos-delay="50"
             className="text-white text-4xl sm:text-5xl md:text-6xl font-black mb-5 tracking-tight leading-[1.05]"
           >
-            Hi, I’m Aravind Durgaraj <br /> 
+            Hi, I’m Abhishek <br /> 
             <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/90 drop-shadow-[0_2px_10px_rgba(0,0,0,0.15)]">
-              Quality Engineering Leader
+              Data Science & ML Engineer
             </span>
           </h1>
 
@@ -73,7 +73,7 @@ const Hero = () => {
             data-aos-delay="200"
             className="text-white/90 text-sm md:text-base lg:text-lg font-medium mb-8 max-w-sm md:max-w-md leading-relaxed drop-shadow-sm"
           >
-            Specializing in test automation, robust CI/CD release engineering, and practical AI/LLM evaluation.
+            B.Tech Chemical Engineering @ IIT Guwahati. Specializing in end-to-end data intelligence, machine learning pipelines, and AI-driven product strategies.
           </p>
 
           {/* Buttons */}

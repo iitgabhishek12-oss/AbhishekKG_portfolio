@@ -18,11 +18,11 @@ function App() {
       <Navbar />
       <Hero />
       <About />
-      <Experience />
       <Skills />
       <Expertise />
       <Projects />
       <Certifications />
+      <Experience />
       <Contact />
       <Footer />
     </>

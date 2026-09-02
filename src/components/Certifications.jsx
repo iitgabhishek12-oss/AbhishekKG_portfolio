@@ -3,18 +3,25 @@ import { motion } from 'framer-motion';
 
 const certificationsData = [
   {
-    title: "Prompt Engineering Interactive Tutorial",
-    issuer: "Anthropic",
-    status: "Completed",
-    description: "Mastered system prompts, few-shot prompting, chain-of-thought reasoning, and structured output[cite: 2].",
-    tag: "AI & LLM"
+    title: "B.Tech. Major — Chemical Engineering",
+    issuer: "IIT Guwahati",
+    status: "CGPA: 7.58",
+    description: "Current undergraduate studies focusing on process simulation, advanced controls, and transport phenomena (2023–Present).",
+    tag: "Education"
   },
   {
-    title: "Claude Code in Action",
-    issuer: "Anthropic",
-    status: "Completed",
-    description: "Learned agentic LLM tooling and advanced developer workflows[cite: 2].",
-    tag: "Agentic AI"
+    title: "Best Sports Secretary Award",
+    issuer: "IIT Guwahati",
+    status: "2025–2026",
+    description: "Led 180+ students across 20+ sports disciplines during SPARDHA, contributing to 1st place among 14 hostels.",
+    tag: "Leadership"
+  },
+  {
+    title: "Overall Champion, SPARDHA",
+    issuer: "IIT Guwahati",
+    status: "2026",
+    description: "Secured 1st place overall representing Brahmaputra Hostel, alongside multiple gold and silver medals in cricket and kho-kho.",
+    tag: "Achievements"
   }
 ];
 
@@ -26,16 +33,16 @@ const Certifications = () => {
         {/* Section Header */}
         <div className="mb-20 relative max-w-2xl" data-aos="fade-up">
           <div className="inline-block border border-gray-300 rounded-full px-5 py-1.5 text-sm text-gray-600 font-bold mb-8 shadow-sm bg-white">
-            Certifications & Learning
+            Education & Leadership
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-[1.1] mb-6 tracking-tight relative">
-            Continuous Professional Growth
+            Continuous Academic & Extracurricular Growth
             <svg className="absolute -bottom-4 left-0 w-48 h-3 text-[#ff2a2a]/40" viewBox="0 0 100 10" preserveAspectRatio="none">
               <path d="M0,5 Q50,10 100,5" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round"/>
             </svg>
           </h2>
           <p className="text-gray-500 text-base md:text-lg font-medium leading-relaxed mt-8">
-            Formal training and certifications in advanced AI tooling, prompt engineering, and modern development paradigms.
+            Formal education at the Indian Institute of Technology, Guwahati, combined with leadership roles and athletic achievements.
           </p>
         </div>
 

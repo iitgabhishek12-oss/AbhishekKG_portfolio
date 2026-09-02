@@ -1,26 +1,26 @@
 import React from 'react';
 import { motion } from 'framer-motion';
- 
+
 const Skills = () => {
   const skillsData = [
     {
-      category: 'Languages',
-      skills: ['Java', 'Python', 'JavaScript', 'React', 'SQL (basics)', 'Go (Learning)'],
+      category: 'Data Science & ML',
+      skills: ['ML', 'Analytics', 'Statistics', 'Scikit-learn', 'Pandas', 'NumPy', 'Logistic Regression', 'Random Forest', 'S/T/X-Learners'],
     },
     {
-      category: 'Test Automation & Performance',
-      skills: ['Selenium Grid', 'Cucumber (BDD)', 'Rest Assured', 'JUnit', 'Postman', 'HP ALM', 'Apache JMeter'],
+      category: 'Programming & Databases',
+      skills: ['Python', 'SQL', 'PostgreSQL', 'MySQL', 'Jupyter Notebook', 'Git', 'GitHub', 'VS Code'],
     },
     {
-      category: 'CI/CD & Release Engineering',
-      skills: ['Jenkins', 'GitHub Actions', 'GitLab CI', 'Git', 'Build/Deploy Automation', 'Release Scheduling', 'PR Gating'],
+      category: 'Product Management & Visualization',
+      skills: ['Product Discovery', 'JTBD', 'PRD', 'Roadmapping', 'RICE', 'MVP', 'A/B Testing', 'Power BI', 'Streamlit', 'Figma'],
     },
     {
-      category: 'AI / LLM & Platforms',
-      skills: ['Prompt Engineering', 'LLM Evaluation', 'RAG', 'Anthropic Claude API', 'Claude Code', 'Zoho Catalyst (Serverless)', 'REST APIs'],
+      category: 'Process Simulation & Chemical Engineering',
+      skills: ['Aspen Plus & HYSYS', 'MATLAB', 'Simulink', 'Process Optimization', 'Heat Exchanger Design', 'Numerical Methods', 'ODE/PDE'],
     },
   ];
- 
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -31,7 +31,7 @@ const Skills = () => {
       },
     },
   };
- 
+
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -44,7 +44,7 @@ const Skills = () => {
       },
     },
   };
- 
+
   const skillPillVariants = {
     initial: { scale: 1 },
     hover: {
@@ -56,8 +56,8 @@ const Skills = () => {
       },
     },
   };
- 
-  const SkillCard = ({ category, skills, index }) => {
+
+  const SkillCard = ({ category, skills }) => {
     return (
       <motion.div
         variants={itemVariants}
@@ -73,13 +73,13 @@ const Skills = () => {
       >
         {/* Subtle glow on hover */}
         <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-red-500/0 via-red-500/0 to-red-500/0 group-hover:from-red-500/5 group-hover:to-red-500/5 transition-all duration-500 pointer-events-none" />
- 
+
         {/* Card content */}
         <div className="relative z-10">
           <h3 className="text-sm font-semibold text-black mb-4 tracking-tight">
             {category}
           </h3>
- 
+
           {/* Skills pills container */}
           <div className="flex flex-wrap gap-2">
             {skills.map((skill, idx) => (
@@ -98,14 +98,14 @@ const Skills = () => {
       </motion.div>
     );
   };
- 
+
   return (
     <section id="skills" className="relative w-full bg-white py-16 md:py-20 overflow-hidden">
       {/* Subtle grid pattern background */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent_24%,rgba(0,0,0,.05)_25%,rgba(0,0,0,.05)_26%,transparent_27%,transparent_74%,rgba(0,0,0,.05)_75%,rgba(0,0,0,.05)_76%,transparent_77%,transparent),linear-gradient(0deg,transparent_24%,rgba(0,0,0,.05)_25%,rgba(0,0,0,.05)_26%,transparent_27%,transparent_74%,rgba(0,0,0,.05)_75%,rgba(0,0,0,.05)_76%,transparent_77%,transparent)] bg-[length:50px_50px]" />
       </div>
- 
+
       <div className="relative z-10 max-w-6xl mx-auto px-6 md:px-8">
         {/* Header */}
         <motion.div
@@ -119,16 +119,16 @@ const Skills = () => {
               Technical Stack
             </span>
           </div>
- 
+
           <h2 className="text-3xl md:text-4xl font-semibold text-black mb-2 tracking-tight">
             Technologies I Work With
           </h2>
- 
+
           <p className="text-sm text-black/60 font-normal">
-            Quality engineering, CI/CD pipelines, and practical AI/LLM evaluation expertise[cite: 2].
+            Data science, machine learning, product management, and core chemical engineering simulation stack.
           </p>
         </motion.div>
- 
+
         {/* Skills Grid */}
         <motion.div
           variants={containerVariants}
@@ -142,12 +142,11 @@ const Skills = () => {
               key={idx}
               category={item.category}
               skills={item.skills}
-              index={idx}
             />
           ))}
         </motion.div>
       </div>
- 
+
       {/* Floating accent elements - very subtle */}
       <motion.div
         animate={{
@@ -161,7 +160,7 @@ const Skills = () => {
         }}
         className="absolute top-10 right-10 w-32 h-32 bg-red-500 rounded-full blur-3xl pointer-events-none"
       />
- 
+
       <motion.div
         animate={{
           y: [0, -8, 0],
@@ -177,5 +176,5 @@ const Skills = () => {
     </section>
   );
 };
- 
+
 export default Skills;

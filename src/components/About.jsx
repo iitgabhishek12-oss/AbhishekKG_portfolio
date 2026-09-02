@@ -34,7 +34,7 @@ const About = () => {
               <div className="w-full aspect-[3/4] overflow-hidden rounded-xl bg-gray-800 border-2 border-transparent">
                 <img 
                   src={stackImage} 
-                  alt="Aravind Durgaraj" 
+                  alt="Abhishek Kumar Gond" 
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -47,26 +47,26 @@ const About = () => {
           <h2 className="text-4xl md:text-5xl font-black text-black mb-4">Hello!</h2>
           
           <p className="text-lg font-bold mb-6 leading-relaxed max-w-3xl text-red-50">
-            Hi, my name is <span className="text-black text-xl font-black mx-1 tracking-wide uppercase">Aravind Durgaraj</span>, a quality engineering leader based in Tuticorin, Tamil Nadu, with nearly 8 years of experience across test automation, release engineering, and AI/LLM evaluation.
+            Hi, my name is <span className="text-black text-xl font-black mx-1 tracking-wide uppercase">Abhishek Kumar Gond</span>, a B.Tech Chemical Engineering student at the Indian Institute of Technology, Guwahati, specializing in Data Science, Machine Learning, and Product Thinking.
           </p>
 
           <p className="text-base text-red-100 mb-8 leading-relaxed max-w-3xl font-medium">
-            Currently serving as a Member Technical Staff at Zoho Corporation, he was the founding QA engineer on Zoho Catalyst—Zoho’s cloud-native serverless platform—where he built the quality function entirely from zero, growing test automation coverage from 10% to 80%. 
+            Bridging analytical engineering foundations with advanced statistical modeling and product strategy. Experienced in building end-to-end customer intelligence pipelines, uplift optimization engines, demand forecasting models, and AI-native product frameworks.
           </p>
 
           {/* Highlights / Quick Stats Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl">
             <div className="bg-black/20 backdrop-blur-md p-4 rounded-xl border border-white/10">
-              <span className="block text-2xl font-black text-black">8 Years</span>
-              <span className="text-xs text-red-100 font-medium">Engineering & QA Leadership</span>
+              <span className="block text-2xl font-black text-black">7.58 CGPA</span>
+              <span className="text-xs text-red-100 font-medium">B.Tech @ IIT Guwahati</span>
             </div>
             <div className="bg-black/20 backdrop-blur-md p-4 rounded-xl border border-white/10">
-              <span className="block text-2xl font-black text-black">6 Engineers</span>
-              <span className="text-xs text-red-100 font-medium">Managed as Manager on Record</span>
+              <span className="block text-2xl font-black text-black">SPARDHA 2026</span>
+              <span className="text-xs text-red-100 font-medium">1st Place / Sports Secretary</span>
             </div>
             <div className="bg-black/20 backdrop-blur-md p-4 rounded-xl border border-white/10">
-              <span className="block text-2xl font-black text-black">-75%</span>
-              <span className="text-xs text-red-100 font-medium">Production Incidents Reduced</span>
+              <span className="block text-2xl font-black text-black">67.6% MAPE</span>
+              <span className="text-xs text-red-100 font-medium">Max Improvement in Forecasts</span>
             </div>
           </div>
 

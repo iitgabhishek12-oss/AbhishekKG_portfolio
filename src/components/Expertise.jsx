@@ -91,7 +91,7 @@ const Expertise = () => {
             My Expertise
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-[1.1] mb-6 tracking-tight relative">
-            Quality Engineering, CI/CD & AI Evaluation
+            Data Science, ML & Product Strategy
             {/* Hand-drawn arrow */}
             <svg className="absolute -bottom-10 right-10 w-12 h-12 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" className="hidden" />
@@ -175,8 +175,8 @@ const Expertise = () => {
 
           <TagCard
             number="01"
-            title="Test Automation & Quality"
-            text="Designing automated test frameworks using Selenium Grid, Cucumber BDD, Rest Assured, JUnit, and Postman to scale test coverage efficiently."
+            title="Data Science & ML"
+            text="Building end-to-end customer intelligence pipelines, uplift optimization engines with causal ML (S/T/X-learners), and demand forecasting models using Python, SQL, and Scikit-learn."
             className="md:absolute md:top-[10px] md:right-[5%] lg:right-[8%] rotate-2 md:rotate-6"
             aosType="fade-left"
             aosDelay="100"
@@ -186,8 +186,8 @@ const Expertise = () => {
           
           <TagCard
             number="02"
-            title="CI/CD & Release Engineering"
-            text="Managing release pipelines, build/deploy automation, merge and PR gating, and CI-integrated regression suites across Jenkins, GitHub Actions, and GitLab CI."
+            title="Product Management & Strategy"
+            text="Defining product vision using JTBD, RICE prioritization, MVP execution, and AI launch decision frameworks. Experienced in scaling financial apps, AI discovery tools, and campus ecosystems."
             className="md:absolute md:top-[480px] md:left-[5%] lg:left-[8%] -rotate-2 md:-rotate-6"
             aosType="fade-right"
             aosDelay="200"
@@ -197,8 +197,8 @@ const Expertise = () => {
 
           <TagCard
             number="03"
-            title="AI & LLM Evaluation"
-            text="Building LLM evaluation suites with deterministic scorers, LLM-as-judge validations, RAG, prompt engineering, and automated AI code-review agents."
+            title="AI Evaluation & Governance"
+            text="Enforcing rigorous LLM evaluation, schema validation, trustworthiness checks, and synthetic signal auditing to bridge experimental AI workflows with reliable production standards."
             className="md:absolute md:top-[780px] md:right-[5%] lg:right-[12%] rotate-1 md:rotate-3"
             aosType="fade-left"
             aosDelay="300"
@@ -208,8 +208,8 @@ const Expertise = () => {
 
           <TagCard
             number="04"
-            title="Performance & Leadership"
-            text="Conducting load and benchmark testing using Apache JMeter, mentoring engineering teams, standardizing QA processes, and driving cross-team technical alignment."
+            title="Process Engineering & Optimization"
+            text="Applying first-principles mathematical modeling, Aspen Plus/HYSYS simulations, Monte Carlo stochastic forecasts, and dynamic control engineering grounded in a B.Tech Chemical background."
             className="md:absolute md:top-[1150px] md:left-[15%] lg:left-[22%] -rotate-1 md:-rotate-3"
             aosType="fade-right"
             aosDelay="400"
@@ -223,7 +223,7 @@ const Expertise = () => {
             data-aos-delay="600"
             className="hidden md:block absolute top-[1380px] left-[55%] font-['Caveat',cursive] text-3xl text-gray-600 rotate-6"
           >
-            Ensuring quality at scale!
+            Driving impact at IIT Guwahati!
           </div>
 
         </div>
