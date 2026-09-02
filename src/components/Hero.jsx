@@ -6,7 +6,7 @@ import heroVideo from '../assets/hero_video/hero_video.mp4';
 
 const Hero = () => {
   const videoRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false); // Initialized to false (paused)
   const [isMuted, setIsMuted] = useState(false);
 
   useEffect(() => {
@@ -15,6 +15,11 @@ const Hero = () => {
       once: true,
       easing: 'ease-out'
     });
+
+    // Ensure the video is explicitly paused on mount
+    if (videoRef.current) {
+      videoRef.current.pause();
+    }
   }, []);
 
   // Switches between play and pause states for the video
@@ -36,7 +41,6 @@ const Hero = () => {
       {/* Background Video - Adjusted mobile object-position to focus on the right */}
       <video
         ref={videoRef}
-        autoPlay
         loop
         muted={isMuted}
         playsInline
