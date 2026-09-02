@@ -3,35 +3,35 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 const projectData = [
-  // 1. DATA & ANALYTICS — PRIMARY
+  // 1. DATA SCIENCE & ML — PRIMARY
   {
     title: "RetailIQ",
-    category: "Data & Analytics • Customer Intelligence",
-    description: "Built an end-to-end customer intelligence pipeline using PostgreSQL, SQL and Python. Engineered RFM and behavioral features across 8K customers, developed Logistic Regression and Random Forest churn models, and optimized targeting under budget constraints to yield ₹16.66M expected revenue.\n\nML",
+    category: "Data Analytics & ML • Customer Intelligence",
+    description: "Built an end-to-end customer intelligence pipeline using PostgreSQL, SQL and Python. Engineered RFM and behavioral features across 8K customers, developed Logistic Regression and Random Forest churn models, and optimized targeting under budget constraints to yield ₹16.66M expected revenue.",
     github: "https://github.com/abhishekkumargond",
     demo: "#",
     tags: ["Python", "PostgreSQL", "Scikit-learn", "Power BI"],
   },
   {
     title: "ImpactIQ",
-    category: "Data & Analytics • Uplift Optimization",
-    description: "Analyzed a 64K-customer randomized experiment to estimate treatment effects. Implemented S, T, and X-learners with Qini analysis (X-learner achieved strongest Qini AUC of 0.038), achieving an 87% relative conversion lift (0.57% to 1.07%) through profit-aware targeting policies.\n\nML",
+    category: "Data Analytics & ML • Uplift Optimization",
+    description: "Analyzed a 64K-customer randomized experiment to estimate treatment effects. Implemented S, T, and X-learners with Qini analysis (X-learner achieved strongest Qini AUC of 0.038), achieving an 87% relative conversion lift (0.57% to 1.07%) through profit-aware targeting policies.",
     github: "https://github.com/abhishekkumargond",
     demo: "#",
     tags: ["Causal ML", "X-learners", "Qini Analysis", "Python"],
   },
   {
     title: "RevenueIQ",
-    category: "Data & Analytics • SaaS Analytics",
-    description: "Built an end-to-end SaaS analytics platform featuring an automated ETL pipeline and SQL data warehouse. Delivered executive-level KPI reporting for cohort retention, churn, CLV, MRR, ARR, and ARPU via Streamlit and Power BI dashboards.\n\nML",
+    category: "Data Analytics & ML • SaaS Analytics",
+    description: "Built an end-to-end SaaS analytics platform featuring an automated ETL pipeline and SQL data warehouse. Delivered executive-level KPI reporting for cohort retention, churn, CLV, MRR, ARR, and ARPU via Streamlit and Power BI dashboards.",
     github: "https://github.com/abhishekkumargond",
     demo: "#",
     tags: ["ETL Pipeline", "SQL", "Streamlit", "Power BI"],
   },
   {
     title: "StockSense AI",
-    category: "Data & Analytics • Demand Forecasting",
-    description: "Built demand forecasting pipelines comparing SARIMAX, Random Forest, XGBoost, and LSTM models—achieving up to 67.60% MAPE improvement. Optimized (s,Q) and (R,S) inventory policies via 10,000 Monte Carlo simulations to maintain 99.16%–100% fill rates.\n\nML",
+    category: "Data Analytics & ML • Demand Forecasting",
+    description: "Built demand forecasting pipelines comparing SARIMAX, Random Forest, XGBoost, and LSTM models—achieving up to 67.60% MAPE improvement. Optimized (s,Q) and (R,S) inventory policies via 10,000 Monte Carlo simulations to maintain 99.16%–100% fill rates.",
     github: "https://github.com/abhishekkumargond",
     demo: "#",
     tags: ["LSTM", "XGBoost", "Monte Carlo", "Stochastic Simulation"],
@@ -143,7 +143,7 @@ const Projects = () => {
             </svg>
           </h2>
           <p className="text-gray-500 text-base md:text-lg font-medium leading-relaxed mt-8">
-            A curated portfolio spanning data & analytics engines, product management frameworks, and core chemical engineering simulations.
+            A curated portfolio spanning data science & machine learning engines, product management frameworks, and core chemical engineering simulations.
           </p>
         </div>
 
@@ -178,7 +178,7 @@ const Projects = () => {
                     </h3>
 
                     {/* Description Text */}
-                    <p className="text-gray-500 text-xs md:text-sm leading-relaxed font-medium mb-4 whitespace-pre-line">
+                    <p className="text-gray-500 text-xs md:text-sm leading-relaxed font-medium mb-4">
                       {project.description}
                     </p>
                   </div>
