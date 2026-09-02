@@ -4,20 +4,20 @@ import { motion } from 'framer-motion';
 const Skills = () => {
   const skillsData = [
     {
-      category: 'Frontend Development',
-      skills: ['React', 'JavaScript', 'TypeScript', 'HTML5', 'CSS3', 'Tailwind CSS', 'Bootstrap'],
+      category: 'Languages',
+      skills: ['Java', 'Python', 'JavaScript', 'React', 'SQL (basics)', 'Go (Learning)'],
     },
     {
-      category: 'Backend Development',
-      skills: ['Node.js', 'Express.js', 'Java', 'Python', 'REST APIs', 'JWT Auth', 'MySQL', 'MongoDB'],
+      category: 'Test Automation & Performance',
+      skills: ['Selenium Grid', 'Cucumber (BDD)', 'Rest Assured', 'JUnit', 'Postman', 'HP ALM', 'Apache JMeter'],
     },
     {
-      category: 'AI & Machine Learning',
-      skills: ['Machine Learning', 'NLP', 'Generative AI', 'LLMs', 'Computer Vision', 'Prompt Engineering'],
+      category: 'CI/CD & Release Engineering',
+      skills: ['Jenkins', 'GitHub Actions', 'GitLab CI', 'Git', 'Build/Deploy Automation', 'Release Scheduling', 'PR Gating'],
     },
     {
-      category: 'Tools & Cloud',
-      skills: ['Git', 'GitHub', 'Docker', 'Postman', 'Linux', 'CI/CD', 'AWS','Figma'],
+      category: 'AI / LLM & Platforms',
+      skills: ['Prompt Engineering', 'LLM Evaluation', 'RAG', 'Anthropic Claude API', 'Claude Code', 'Zoho Catalyst (Serverless)', 'REST APIs'],
     },
   ];
  
@@ -125,7 +125,7 @@ const Skills = () => {
           </h2>
  
           <p className="text-sm text-black/60 font-normal">
-            Full-stack expertise across modern development, AI, and cloud infrastructure.
+            Quality engineering, CI/CD pipelines, and practical AI/LLM evaluation expertise[cite: 2].
           </p>
         </motion.div>
  
@@ -179,4 +179,3 @@ const Skills = () => {
 };
  
 export default Skills;
- 

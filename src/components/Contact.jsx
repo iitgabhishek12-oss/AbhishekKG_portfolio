@@ -30,7 +30,7 @@ const Contact = () => {
     }));
   };
 
-  // Handle form submission logic
+  // Handle form submission logic — triggers mail client with pre-filled content
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevents the painful page-refresh crash
 
@@ -39,9 +39,19 @@ const Contact = () => {
       return;
     }
 
-    // Process your form payload safely here (e.g., Axios, EmailJS, Fetch API)
-    console.log("Form Data Submitted Successfully:", formData);
-    alert(`Thanks ${formData.firstName}! Message captured.`);
+    // Target email from Aravind's portfolio brief
+    const recipientEmail = "aravind.durgaraj@gmail.com";
+    const subject = encodeURIComponent(`Portfolio Message from ${formData.firstName} ${formData.lastName}`);
+    const body = encodeURIComponent(
+      `Name: ${formData.firstName} ${formData.lastName}\n` +
+      `Email: ${formData.email}\n\n` +
+      `Message:\n${formData.message}`
+    );
+
+    // Opens user's default email client pre-populated with form details
+    window.location.href = `mailto:${recipientEmail}?subject=${subject}&body=${body}`;
+    
+    alert(`Thanks ${formData.firstName}! Opening your mail client to send the message.`);
     
     // Optional Reset
     setFormData({ firstName: '', lastName: '', email: '', message: '', permission: false });
@@ -63,7 +73,7 @@ const Contact = () => {
         </h1>
       </motion.div>
 
-      {/* Form Card Overlay (Upgraded from AOS to Framer Motion built-in viewport engine) */}
+      {/* Form Card Overlay */}
       <div className="relative z-10 w-full flex justify-end items-end">
         <motion.div 
           initial={{ opacity: 0, y: 50 }}
@@ -72,8 +82,19 @@ const Contact = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="bg-[#ff2a2a] w-full md:w-[85%] lg:w-[75%] p-8 md:p-16 text-white flex flex-col justify-between"
         >
-          <div className="text-xs font-bold tracking-[0.2em] mb-12 md:mb-20 uppercase opacity-90">
-            Reach Us
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-12 md:mb-16 gap-4">
+            <div className="text-xs font-bold tracking-[0.2em] uppercase opacity-90">
+              Reach Us
+            </div>
+            {/* Added Contact Info Display */}
+            <div className="flex flex-wrap items-center gap-6 text-xs md:text-sm font-bold opacity-90">
+              <a href="mailto:aravind.durgaraj@gmail.com" className="hover:underline flex items-center gap-1.5">
+                <span>✉️</span> aravind.durgaraj@gmail.com
+              </a>
+              <a href="tel:+918056462078" className="hover:underline flex items-center gap-1.5">
+                <span>📞</span> +91 80564 62078
+              </a>
+            </div>
           </div>
 
           <form onSubmit={handleSubmit} className="flex flex-col gap-12 md:gap-16 w-full">

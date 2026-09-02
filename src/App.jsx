@@ -7,6 +7,9 @@ import Expertise from './components/Expertise'
 import Skills from './components/Skills'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import Projects from './components/Projects'
+import Certifications from './components/Certifications'
+import Experience from './components/Experience'
 
 function App() {
   return (
@@ -15,8 +18,11 @@ function App() {
       <Navbar />
       <Hero />
       <About />
-      <Expertise />
+      <Experience />
       <Skills />
+      <Expertise />
+      <Projects />
+      <Certifications />
       <Contact />
       <Footer />
     </>

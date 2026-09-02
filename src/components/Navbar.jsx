@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,7 +18,7 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = ['Home', 'About', 'Expertise', 'Skills', 'Projects', 'Certifications', 'Contact'];
+  const navLinks = ['Home', 'About', 'Experience', 'Skills', 'Expertise', 'Projects', 'Certifications', 'Contact'];
 
   return (
     <nav 
@@ -34,17 +35,17 @@ const Navbar = () => {
         {/* Left Side: Dynamic Logo font node configurations */}
         <div className="flex items-center">
           <a 
-            href="#" 
+            href="#home" 
             className={`text-2xl font-black tracking-tight transition-colors duration-500 ${
               isOpen || !isScrolled ? 'text-white' : 'text-gray-900'
             }`}
           >
-            Sushmita <span className="text-[#ff2a2a]">.</span>
+            Aravind <span className="text-[#ff2a2a]">.</span>
           </a>
         </div>
 
         {/* Center: Desktop Links with dynamic contrasting rules */}
-        <div className="hidden md:flex space-x-7 lg:space-x-8">
+        <div className="hidden md:flex space-x-6 lg:space-x-7">
           {navLinks.map((link) => (
             <a 
               key={link} 
@@ -70,7 +71,7 @@ const Navbar = () => {
                 : 'bg-white/10 border border-white/20 text-white hover:bg-white hover:text-black backdrop-blur-md'
             }`}
           >
-            Hire Me
+            Contact Me
           </a>
         </div>
 
@@ -97,7 +98,7 @@ const Navbar = () => {
       {/* Mobile Menu Panel Expansion Drawer Overlay */}
       <div 
         className={`md:hidden absolute top-full left-0 w-full transition-all duration-500 ease-in-out ${
-          isOpen ? 'max-h-[460px] py-6 opacity-100 bg-[#ff2a2a] shadow-2xl' : 'max-h-0 opacity-0 pointer-events-none'
+          isOpen ? 'max-h-[520px] py-6 opacity-100 bg-[#ff2a2a] shadow-2xl' : 'max-h-0 opacity-0 pointer-events-none'
         }`}
       >
         <div className="flex flex-col px-6 space-y-4">
@@ -117,7 +118,7 @@ const Navbar = () => {
                onClick={() => setIsOpen(false)} 
                className="inline-block px-6 py-3 rounded-full bg-white text-[#ff2a2a] font-black hover:bg-gray-950 hover:text-white transition-all duration-300 w-full text-center shadow-xl"
              >
-               Hire Me
+               Contact Me
              </a>
           </div>
         </div>

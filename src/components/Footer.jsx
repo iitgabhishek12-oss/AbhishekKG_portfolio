@@ -7,26 +7,26 @@ const Footer = () => {
       {/* Top Row */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 w-full font-medium">
         <div className="flex flex-col gap-1">
-          <p>Cinematic & Creative Production</p>
-          <p>Lighting, Editing, Photo</p>
-          <p>Motion Graphics</p>
+          <p>Quality Engineering & Release Leadership</p>
+          <p>Test Automation, CI/CD Pipelines</p>
+          <p>AI / LLM Evaluation</p>
         </div>
         
         <div className="flex flex-col gap-1 md:items-center">
-          <p>5+ years of experience</p>
+          <p>Nearly 8 years of experience</p>
           <a href="#work" className="underline hover:text-white transition-colors mt-1 underline-offset-4 decoration-1">View Work</a>
         </div>
         
         <div className="flex flex-col gap-1 md:items-end">
-          <p>Worldwide Available</p>
+          <p>Tuticorin, Tamil Nadu, India</p>
           <p>{new Date().getFullYear()}</p>
         </div>
       </div>
 
       {/* Middle Huge Text */}
       <div className="w-full flex justify-center items-center py-20 md:py-24 overflow-hidden">
-        <h2 className="text-[18vw] md:text-[16vw] leading-none font-sans font-bold tracking-tighter lowercase select-none text-[#f4f4f4] w-full text-center">
-          SUSHMITA
+        <h2 className="text-[14vw] md:text-[12vw] leading-none font-sans font-bold tracking-tighter lowercase select-none text-[#f4f4f4] w-full text-center">
+          ARAVIND
         </h2>
       </div>
 
@@ -35,16 +35,16 @@ const Footer = () => {
         <div className="flex flex-col gap-6">
           <a href="#contact" className="underline hover:text-white transition-colors underline-offset-4 decoration-1 font-bold">Contact</a>
           <p className="text-white/60 font-mono text-[9px] md:text-[10px]">
-            &copy; {new Date().getFullYear()} Sushmita Dasari Studio | Built with React
+            &copy; {new Date().getFullYear()} Aravind Durgaraj | Built with React
           </p>
         </div>
         
         <div className="flex flex-col gap-1 md:items-center">
-          <a href="mailto:sushmita@gmail.com" className="underline hover:text-white transition-colors underline-offset-4 decoration-1 lowercase">sushmita@gmail.com</a>
+          <a href="mailto:aravind.durgaraj@gmail.com" className="underline hover:text-white transition-colors underline-offset-4 decoration-1 lowercase">aravind.durgaraj@gmail.com</a>
         </div>
         
         <div className="flex flex-col gap-1 md:items-end">
-          <a href="#" className="underline hover:text-white transition-colors underline-offset-4 decoration-1">Privacy Policy</a>
+          <a href="tel:+918056462078" className="underline hover:text-white transition-colors underline-offset-4 decoration-1">+91 80564 62078</a>
         </div>
       </div>
     </footer>
