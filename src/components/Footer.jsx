@@ -7,7 +7,7 @@ const Footer = () => {
       {/* Top Row */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 w-full font-medium">
         <div className="flex flex-col gap-1">
-          <p>Data analytics & Machine Learning</p>
+          <p>Data Analytics & Machine Learning</p>
           <p>Product Strategy & AI Discovery</p>
           <p>Chemical Engineering @ IIT Guwahati</p>
         </div>
@@ -15,6 +15,7 @@ const Footer = () => {
         <div className="flex flex-col gap-1 md:items-center">
           <p>B.Tech — Roll No: 230107007</p>
           <a href="#projects" className="underline hover:text-white transition-colors mt-1 underline-offset-4 decoration-1">View Projects</a>
+          <a href="https://www.linkedin.com/in/abhishekkumargond/" target="_blank" rel="noreferrer" className="underline hover:text-white transition-colors mt-1 underline-offset-4 decoration-1">LinkedIn Profile</a>
         </div>
         
         <div className="flex flex-col gap-1 md:items-end">
@@ -39,8 +40,9 @@ const Footer = () => {
           </p>
         </div>
         
-        <div className="flex flex-col gap-1 md:items-center">
+        <div className="flex flex-col gap-2 md:items-center">
           <a href="mailto:abhishekiitg1@gmail.com" className="underline hover:text-white transition-colors underline-offset-4 decoration-1 lowercase">abhishekiitg1@gmail.com</a>
+          <a href="mailto:mr.abhishekaaa@gmail.com" className="underline hover:text-white transition-colors underline-offset-4 decoration-1 lowercase">mr.abhishekaaa@gmail.com</a>
         </div>
         
         <div className="flex flex-col gap-1 md:items-end">
