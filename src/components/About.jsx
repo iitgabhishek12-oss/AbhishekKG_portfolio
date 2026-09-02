@@ -47,7 +47,7 @@ const About = () => {
           <h2 className="text-4xl md:text-5xl font-black text-black mb-4">Hello!</h2>
           
           <p className="text-lg font-bold mb-6 leading-relaxed max-w-3xl text-red-50">
-            Hi, my name is <span className="text-black text-xl font-black mx-1 tracking-wide uppercase">Abhishek Kumar Gond</span>, a B.Tech Chemical Engineering student at the Indian Institute of Technology, Guwahati, specializing in Data Science, Machine Learning, and Product Thinking.
+            Hi, my name is <span className="text-black text-xl font-black mx-1 tracking-wide uppercase">Abhishek Kumar Gond</span>, a B.Tech Chemical Engineering student at the Indian Institute of Technology, Guwahati, specializing in Data Science, Analytics, Machine Learning, and Product Thinking.
           </p>
 
           <p className="text-base text-red-100 mb-8 leading-relaxed max-w-3xl font-medium">

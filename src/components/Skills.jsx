@@ -4,8 +4,8 @@ import { motion } from 'framer-motion';
 const Skills = () => {
   const skillsData = [
     {
-      category: 'Data Science & ML',
-      skills: ['ML', 'Analytics', 'Statistics', 'Scikit-learn', 'Pandas', 'NumPy', 'Logistic Regression', 'Random Forest', 'S/T/X-Learners'],
+      category: 'Data Science & Analytics',
+      skills: ['ML', 'Analytics', 'Statistics', 'Scikit-learn', 'Pandas', 'NumPy', 'Logistic Regression', 'Random Forest', 'S/T/X-Learners' , 'Excel', 'Power BI'],
     },
     {
       category: 'Programming & Databases',
@@ -125,7 +125,7 @@ const Skills = () => {
           </h2>
 
           <p className="text-sm text-black/60 font-normal">
-            Data science, machine learning, product management, and core chemical engineering simulation stack.
+            Data science, Analytics, Machine Learning, and Product Thinking.
           </p>
         </motion.div>
 

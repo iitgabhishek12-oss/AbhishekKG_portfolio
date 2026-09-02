@@ -67,7 +67,7 @@ const Hero = () => {
           >
             Hi, I’m Abhishek <br /> 
             <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/90 drop-shadow-[0_2px_10px_rgba(0,0,0,0.15)]">
-              Data Science & ML Engineer
+              Data, Analytics, Product, ML
             </span>
           </h1>
 
