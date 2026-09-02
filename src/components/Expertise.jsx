@@ -175,7 +175,7 @@ const Expertise = () => {
 
           <TagCard
             number="01"
-            title="Data Analytics & ML"
+            title="Data, Analytics & ML"
             text="Building end-to-end customer intelligence pipelines, uplift optimization engines with causal ML (S/T/X-learners), and demand forecasting models using Python, SQL, Scikit-learn, Excel, and Power BI."
             className="md:absolute md:top-[10px] md:right-[5%] lg:right-[8%] rotate-2 md:rotate-6"
             aosType="fade-left"
