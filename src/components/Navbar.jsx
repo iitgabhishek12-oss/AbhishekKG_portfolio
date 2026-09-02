@@ -40,7 +40,7 @@ const Navbar = () => {
               isOpen || !isScrolled ? 'text-white' : 'text-gray-900'
             }`}
           >
-            Abhishek <span className="text-[#ff2a2a]">.</span>
+            Abhishek KG<span className="text-[#ff2a2a]">.</span>
           </a>
         </div>
 
