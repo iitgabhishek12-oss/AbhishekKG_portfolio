@@ -20,12 +20,18 @@ const Expertise = () => {
     },
     { 
       number: "03", 
+      title: "Content & Creative Production", 
+      tech: "Editing & AI Videos",
+      desc: "Producing engaging content, professional graphic designs, video editing, and advanced AI video assets."
+    },
+    { 
+      number: "04", 
       title: "SEO & Web Analytics", 
       tech: "GA4 & SEMRush",
       desc: "Implementing technical SEO strategies to maximize web traffic and search performance."
     },
     { 
-      number: "04", 
+      number: "05", 
       title: "Ads & Conversion", 
       tech: "Meta & Google Ads",
       desc: "Executing targeted ad campaigns, CRM management, and cross-channel marketing."
@@ -45,7 +51,7 @@ const Expertise = () => {
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-gradient-to-r from-zinc-200 via-zinc-600 to-zinc-800 rounded-full blur-[160px] pointer-events-none" 
       />
 
-      <div className="max-w-6xl mx-auto relative z-20">
+      <div className="max-w-7xl mx-auto relative z-20">
 
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-20">
@@ -76,7 +82,7 @@ const Expertise = () => {
           <div className="hidden lg:block absolute top-1/2 left-0 w-full h-[2px] bg-gradient-to-r from-zinc-800 via-zinc-500 to-zinc-800 -translate-y-1/2 z-0" />
 
           {/* Steps Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 relative z-10">
             {roadmapSteps.map((step, index) => (
               <motion.div
                 key={step.number}
@@ -117,7 +123,7 @@ const Expertise = () => {
                   </div>
 
                   <div className="pt-4 border-t border-zinc-900 mt-2">
-                    <span className="text-zinc-300 text-xs font-mono tracking-wider bg-white/5 px-2.5 py-1 rounded-md border border-white/5 group-hover:border-white/20 transition-all">
+                    <span className="text-zinc-300 text-xs font-mono tracking-wider bg-white/5 px-2.5 py-1 rounded-md border border-white/5 group-hover:border-white/20 transition-all inline-block">
                       {step.tech}
                     </span>
                   </div>

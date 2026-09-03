@@ -10,8 +10,7 @@ import Footer from './components/Footer'
 import Experience from './components/Experience'
 import Certifications from './components/Certifications'
 import Archievements from './components/Archievements'
-import Gallery from './components/Gallery'
-
+import ReferenceWorks from './components/ReferenceWorks'
 function App() {
   return (
     <>
@@ -19,14 +18,6 @@ function App() {
       <Navbar />
       <Hero />
       <About />
-      <Skills />
-      <Expertise />
-      <Experience />
-      <Certifications />
-      <Archievements />
-      <Gallery />
-      <Contact />
-      <Footer />
     </>
   )
 }

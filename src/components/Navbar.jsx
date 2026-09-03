@@ -17,7 +17,17 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinks = ['Home', 'About', 'Expertise', 'Skills', 'Experience', 'Certifications', 'Achievements', 'Gallery', 'Contact'];
+  const navLinks = [
+    { name: 'Home', href: '#home' },
+    { name: 'About', href: '#about' },
+    { name: 'Expertise', href: '#expertise' },
+    { name: 'Skills', href: '#skills' },
+    { name: 'Experience', href: '#experience' },
+    { name: 'Certifications', href: '#certifications' },
+    { name: 'Achievements', href: '#achievements' },
+    { name: 'Reference Works', href: '#projects' },
+    { name: 'Contact', href: '#contact' }
+  ];
 
   return (
     <nav 
@@ -26,7 +36,7 @@ const Navbar = () => {
           ? 'bg-zinc-950/95 backdrop-blur-xl py-4 border-b border-zinc-800'
           : isScrolled 
             ? 'bg-zinc-950/85 backdrop-blur-md py-3.5 border-b border-zinc-800/80 shadow-[0_10px_30px_rgba(0,0,0,0.8)]' 
-            : 'bg-transparent py-6'
+            : 'bg-transparent py-5'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
@@ -35,21 +45,22 @@ const Navbar = () => {
         <div className="flex items-center">
           <a 
             href="#" 
-            className="text-2xl font-black tracking-tight text-white transition-opacity duration-300 hover:opacity-80 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
+            className="text-lg xl:text-xl font-black tracking-tight text-white transition-opacity duration-300 hover:opacity-80 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] leading-tight"
           >
-            Balaji <span className="text-zinc-400">.</span>
+            Pushpesh <br className="hidden sm:block" />
+            <span className="text-zinc-400">Garikpati <span className="text-white">.</span></span>
           </a>
         </div>
 
-        {/* Center: Desktop Links */}
-        <div className="hidden lg:flex space-x-6 xl:space-x-7">
+        {/* Center: Desktop Links (Compact spacing to prevent overflow) */}
+        <div className="hidden xl:flex space-x-3 lg:space-x-4 items-center">
           {navLinks.map((link) => (
             <a 
-              key={link} 
-              href={`#${link.toLowerCase()}`}
-              className="font-semibold text-xs xl:text-sm tracking-wide relative group transition-colors duration-300 text-zinc-300 hover:text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
+              key={link.name} 
+              href={link.href}
+              className="font-semibold text-xs tracking-wide relative group transition-colors duration-300 text-zinc-300 hover:text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] whitespace-nowrap"
             >
-              {link}
+              {link.name}
               {/* Active underline indicator */}
               <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-white transition-all duration-300 group-hover:w-full"></span>
             </a>
@@ -57,17 +68,17 @@ const Navbar = () => {
         </div>
 
         {/* Right Side: CTA Button */}
-        <div className="hidden lg:block">
+        <div className="hidden xl:block">
           <a 
             href="#contact" 
-            className="px-6 py-2.5 rounded-full text-sm font-extrabold transition-all duration-300 bg-white/10 border border-white/30 text-white hover:bg-white hover:text-black backdrop-blur-md shadow-2xl"
+            className="px-5 py-2 rounded-full text-xs font-extrabold transition-all duration-300 bg-white/10 border border-white/30 text-white hover:bg-white hover:text-black backdrop-blur-md shadow-2xl whitespace-nowrap"
           >
             Hire Me
           </a>
         </div>
 
-        {/* Mobile/Tablet Hamburger Trigger */}
-        <div className="lg:hidden flex items-center">
+        {/* Mobile/Tablet Hamburger Trigger (Shows for lg and below to ensure safety) */}
+        <div className="xl:hidden flex items-center">
           <button 
             onClick={() => setIsOpen(!isOpen)}
             className="focus:outline-none p-2 text-white transition-colors duration-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
@@ -86,19 +97,19 @@ const Navbar = () => {
 
       {/* Mobile Menu Panel */}
       <div 
-        className={`lg:hidden absolute top-full left-0 w-full transition-all duration-500 ease-in-out bg-zinc-950/95 backdrop-blur-xl border-b border-zinc-800 overflow-hidden ${
-          isOpen ? 'max-h-[600px] py-6 opacity-100 shadow-2xl' : 'max-h-0 opacity-0 pointer-events-none'
+        className={`xl:hidden absolute top-full left-0 w-full transition-all duration-500 ease-in-out bg-zinc-950/95 backdrop-blur-xl border-b border-zinc-800 overflow-hidden ${
+          isOpen ? 'max-h-[700px] py-6 opacity-100 shadow-2xl' : 'max-h-0 opacity-0 pointer-events-none'
         }`}
       >
         <div className="flex flex-col px-6 space-y-4 max-h-[75vh] overflow-y-auto">
           {navLinks.map((link) => (
             <a 
-              key={link} 
-              href={`#${link.toLowerCase()}`}
+              key={link.name} 
+              href={link.href}
               onClick={() => setIsOpen(false)}
               className="text-zinc-300 hover:text-white font-bold text-base border-b border-zinc-800/80 pb-2.5 transition-colors"
             >
-              {link}
+              {link.name}
             </a>
           ))}
           <div className="pt-2">

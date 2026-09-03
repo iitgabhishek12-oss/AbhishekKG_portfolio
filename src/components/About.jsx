@@ -39,7 +39,7 @@ const About = () => {
 
                 <img 
                   src={stackImage} 
-                  alt="Balaji Sivakumar" 
+                  alt="Pushpesh Garikpati" 
                   className="w-full h-full object-cover filter contrast-115 grayscale-[10%] group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
                 />
               </div>
@@ -70,7 +70,7 @@ const About = () => {
           >
             Hello, I'm <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-300 to-zinc-500 drop-shadow-[0_0_30px_rgba(255,255,255,0.3)]">
-              Balaji Sivakumar
+              Pushpesh Garikpati
             </span>
           </motion.h2>
           
@@ -81,7 +81,7 @@ const About = () => {
             transition={{ duration: 0.7, delay: 0.4 }}
             className="text-base md:text-lg font-normal leading-relaxed text-zinc-300 max-w-2xl drop-shadow mb-12"
           >
-            Dynamic Digital Marketing Manager with a proven track record in strategic content creation and data analytics. Expert in leveraging social media platforms to boost engagement by over 50% and implementing SEO strategies that increase web traffic by 40%. Skilled in brand identity development, CRM management, and high-impact campaign execution.
+            Strategic global marketing and communications leader with 18+ years of expertise spanning GTM, product marketing, integrated campaigns, corporate communications, PR, and digital branding. Proven track record in scaling demand generation, unifying international priorities, and driving tech-enabled innovation across the Middle East, Asia, US, and Europe. Recognized as a 40under40 awardee and published in Harvard Business Review.
           </motion.p>
 
           {/* Quick Stats Grid with Scale-in Animation */}
@@ -92,18 +92,18 @@ const About = () => {
             className="grid grid-cols-1 sm:grid-cols-3 gap-5 pt-6 border-t border-zinc-800/80"
           >
             <div className="p-5 rounded-2xl bg-zinc-900/60 border border-zinc-800/80 backdrop-blur-xl hover:border-zinc-500 transition-all duration-300 group">
-              <h4 className="text-white text-2xl font-black tracking-tight mb-1 group-hover:translate-x-1 transition-transform">Digital Strategy</h4>
-              <p className="text-zinc-400 text-xs font-mono uppercase tracking-wider">Campaigns & Ads</p>
+              <h4 className="text-white text-2xl font-black tracking-tight mb-1 group-hover:translate-x-1 transition-transform">18+ Years</h4>
+              <p className="text-zinc-400 text-xs font-mono uppercase tracking-wider">Global Marketing Leadership</p>
             </div>
             
             <div className="p-5 rounded-2xl bg-zinc-900/60 border border-zinc-800/80 backdrop-blur-xl hover:border-zinc-500 transition-all duration-300 group">
-              <h4 className="text-white text-2xl font-black tracking-tight mb-1 group-hover:translate-x-1 transition-transform">SEO & Analytics</h4>
-              <p className="text-zinc-400 text-xs font-mono uppercase tracking-wider">GA4 & SEMRush</p>
+              <h4 className="text-white text-2xl font-black tracking-tight mb-1 group-hover:translate-x-1 transition-transform">GTM & Growth</h4>
+              <p className="text-zinc-400 text-xs font-mono uppercase tracking-wider">Cross-Market Strategy</p>
             </div>
             
             <div className="p-5 rounded-2xl bg-zinc-900/60 border border-zinc-800/80 backdrop-blur-xl hover:border-zinc-500 transition-all duration-300 group sm:col-span-1 col-span-1">
-              <h4 className="text-white text-2xl font-black tracking-tight mb-1 group-hover:translate-x-1 transition-transform">Brand Growth</h4>
-              <p className="text-zinc-400 text-xs font-mono uppercase tracking-wider">Community Scaling</p>
+              <h4 className="text-white text-2xl font-black tracking-tight mb-1 group-hover:translate-x-1 transition-transform">Award-Winning</h4>
+              <p className="text-zinc-400 text-xs font-mono uppercase tracking-wider">40Under40 & HBR Published</p>
             </div>
           </motion.div>
 

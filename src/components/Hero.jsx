@@ -31,7 +31,8 @@ const Hero = () => {
             
             setScrollProgress(progress);
 
-            if (video.duration && !video.seeking) {
+            // Only scrub video if loaded and duration exists
+            if (video.duration && !video.seeking && isVideoLoaded) {
               video.currentTime = progress * video.duration;
             }
           }
@@ -43,42 +44,46 @@ const Hero = () => {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isVideoLoaded]);
 
   const currentTime = scrollProgress * 10;
   
   // Dynamic Title & Right-Side Message Sequence
-  let currentTitle = "DIGITAL MARKETING MANAGER";
-  let rightSideHeading = "TURNING STRATEGY INTO GROWTH";
-  let rightSideSubtext = "Available for hire. Boosting engagement by 50%+ and web traffic via targeted SEO & high-impact campaigns.";
+  let currentTitle = "GLOBAL MARKETING LEADER";
+  let rightSideHeading = "DRIVING GTM & BRAND STRATEGY";
+  let rightSideSubtext = "18+ years scaling demand generation, integrated campaigns, corporate communications, and cross-market growth.";
   
   if (currentTime > 2.5 && currentTime <= 6) {
-    currentTitle = "GROWTH & SEO EXPERT";
+    currentTitle = "COMMUNICATIONS & PR EXPERT";
     rightSideHeading = "SCALING BRAND PRESENCE";
-    rightSideSubtext = "Specialized in organic social media growth, cross-platform video editing, and data-driven marketing.";
+    rightSideSubtext = "Specialized in corporate reputation, stakeholder engagement, public-private partnerships, and digital transformation.";
   } else if (currentTime > 6) {
-    currentTitle = "CAMPAIGN ARCHITECT";
-    rightSideHeading = "ROBUST BRANDING & ANALYTICS";
-    rightSideSubtext = "Executing CRM management, Meta & Google Ads, and full-scale digital identity development.";
+    currentTitle = "STRATEGIC GROWTH ARCHITECT";
+    rightSideHeading = "GLOBAL BRANDING & ANALYTICS";
+    rightSideSubtext = "Executing multi-country product launches, data-driven performance marketing, and high-impact international campaigns.";
   }
 
   return (
     <section id="home" className="relative w-full h-[600vh] bg-black">
       {/* Sticky viewport container */}
-      <div className="sticky top-0 w-full h-screen overflow-hidden">
+      <div className="sticky top-0 w-full h-screen overflow-hidden bg-zinc-950">
         
-        {/* Crystal-Clear HD Video Layer with Max Sharpness & GPU Acceleration */}
+        {/* Fallback Background Layer while video loads */}
+        <div className={`absolute inset-0 bg-black z-0 transition-opacity duration-700 ${isVideoLoaded ? 'opacity-0 pointer-events-none' : 'opacity-100'}`} />
+
+        {/* Optimized Mobile-Friendly Video Layer */}
         <video
           ref={videoRef}
           muted
           playsInline
-          preload="auto"
-          onLoadedMetadata={() => setIsVideoLoaded(true)}
+          webkit-playsinline="true"
+          preload="metadata"
+          onLoadedData={() => setIsVideoLoaded(true)}
           className={`absolute inset-0 w-full h-full object-cover z-0 transition-opacity duration-1000 ${
             isVideoLoaded ? 'opacity-100' : 'opacity-0'
           }`}
           style={{
-            filter: 'contrast(1.25) saturate(1.1) brightness(1.05)',
+            filter: 'contrast(1.15) saturate(1.05) brightness(1.0)',
             WebkitTransform: 'translateZ(0)',
             transform: 'translateZ(0)'
           }}
@@ -88,7 +93,7 @@ const Hero = () => {
         </video>
 
         {/* --- SPOTLIGHT LIGHTING EFFECT --- */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.18)_0%,transparent_65%)] z-10 pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.15)_0%,transparent_65%)] z-10 pointer-events-none" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,rgba(0,0,0,0.85)_85%)] z-10 pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-transparent to-black/90 z-10 pointer-events-none" />
 
@@ -108,7 +113,7 @@ const Hero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-zinc-300 text-sm md:text-base font-bold tracking-[0.25em] uppercase mb-3 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]"
               >
-                HI, I'M <span className="text-white font-black underline decoration-white underline-offset-4">BALAJI SIVAKUMAR</span>
+                HI, I'M <span className="text-white font-black underline decoration-white underline-offset-4">PUSHPESH GARIKPATI</span>
               </motion.div>
 
               <div className="overflow-hidden py-1 min-h-[80px] sm:min-h-[110px] flex items-center">
@@ -168,7 +173,7 @@ const Hero = () => {
                 href="#projects" 
                 className="px-7 py-3.5 text-xs sm:text-sm rounded-full bg-white text-black font-extrabold hover:bg-zinc-200 transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.25)] transform hover:scale-105 text-center"
               >
-                View Campaigns
+                View Works
               </a>
               <a 
                 href="#contact" 

@@ -17,9 +17,9 @@ const Achievements = () => {
       description: "Built and nurtured the official hospital Instagram and YouTube community from the ground up."
     },
     {
-      metric: "HP LIFE",
-      title: "Social Media Manager",
-      description: "Successfully completed specialized programs and managed digital social media initiatives under HP LIFE."
+      metric: "2 Months",
+      title: "Super Speciality Hospital Branding",
+      description: "Completed full branding for the new Super Speciality Hospital within 2 months, including signage and internal branding."
     },
     {
       metric: "1.25 Lakh",
