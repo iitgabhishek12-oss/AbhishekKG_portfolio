@@ -30,7 +30,7 @@ const Contact = () => {
     }));
   };
 
-  // Handle form submission logic
+  // Handle form submission logic to open WhatsApp with pre-filled details
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -39,11 +39,12 @@ const Contact = () => {
       return;
     }
 
-    console.log("Form Data Submitted Successfully:", formData);
-    alert(`Thanks ${formData.firstName}! Message captured.`);
-    
-    // Reset Form
-    setFormData({ firstName: '', lastName: '', email: '', message: '', permission: false });
+    const phoneNumber = "+918015783190";
+    const textMessage = `Hello Balaji,\n\nMy name is ${formData.firstName} ${formData.lastName}.\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`;
+    const encodedMessage = encodeURIComponent(textMessage);
+
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    window.open(whatsappUrl, '_blank');
   };
 
   return (
@@ -72,7 +73,7 @@ const Contact = () => {
       {/* Unique Dual-Column Interactive Contact Container */}
       <div className="max-w-7xl w-full mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         
-        {/* Left Side: Live Holographic Message Preview Card (Unique Interactive Feature) */}
+        {/* Left Side: Contact Info & Details Card */}
         <motion.div 
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -88,7 +89,7 @@ const Contact = () => {
 
           <div className="relative z-10">
             <div className="flex items-center justify-between mb-8">
-              <span className="text-zinc-400 font-mono text-xs tracking-widest uppercase">// Live Dispatch Node</span>
+              <span className="text-zinc-400 font-mono text-xs tracking-widest uppercase">// Get In Touch</span>
               <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
             </div>
 
@@ -96,21 +97,24 @@ const Contact = () => {
               Let's Build Something Exceptional.
             </h3>
             <p className="text-zinc-400 text-sm leading-relaxed font-normal mb-8">
-              Fill out the transmission form or preview your live payload stream directly below.
+              Reach out directly or send a message to open WhatsApp with your details pre-filled.
             </p>
           </div>
 
-          {/* Real-Time Live Preview Display Box */}
+          {/* Contact Details Box */}
           <div className="relative z-10 p-5 rounded-2xl bg-zinc-900/90 border border-zinc-800 font-mono text-xs text-zinc-300 space-y-3 shadow-inner">
-            <div className="text-zinc-500">// payload_preview.json</div>
+            <div className="text-zinc-500">// contact_info</div>
             <div>
-              <span className="text-zinc-500">sender:</span> <span className="text-white">{formData.firstName || formData.lastName ? `${formData.firstName} ${formData.lastName}` : '[Awaiting Name]'}</span>
+              <span className="text-zinc-500">name:</span> <span className="text-white">Balaji Sivakumar</span>
             </div>
             <div>
-              <span className="text-zinc-500">email:</span> <span className="text-white">{formData.email || '[Awaiting Email]'}</span>
+              <span className="text-zinc-500">phone:</span> <span className="text-white">+91 8015783190</span>
             </div>
             <div>
-              <span className="text-zinc-500">message:</span> <span className="text-zinc-300 italic">{formData.message ? `"${formData.message}"` : '"[Awaiting Message]"'}</span>
+              <span className="text-zinc-500">email:</span> <span className="text-white">balaji07siva@gamil.com</span>
+            </div>
+            <div>
+              <span className="text-zinc-500">location:</span> <span className="text-white">Tiruvannamalai & Bangalore, India</span>
             </div>
           </div>
         </motion.div>
@@ -193,7 +197,7 @@ const Contact = () => {
                 type="submit" 
                 className="px-8 py-4 rounded-full bg-white text-black font-extrabold flex items-center justify-center gap-3 hover:bg-zinc-200 transition-all duration-300 group shadow-[0_0_25px_rgba(255,255,255,0.25)]"
               >
-                Send Message
+                Send via WhatsApp
                 <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                 </svg>

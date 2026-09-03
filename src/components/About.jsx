@@ -39,19 +39,9 @@ const About = () => {
 
                 <img 
                   src={stackImage} 
-                  alt="Sushmita Dasari" 
+                  alt="Balaji Sivakumar" 
                   className="w-full h-full object-cover filter contrast-115 grayscale-[10%] group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
                 />
-              </div>
-              
-              {/* Floating Live Status Pill */}
-              <div className="absolute bottom-6 left-6 right-6 p-4 bg-black/70 backdrop-blur-2xl border border-white/15 rounded-2xl flex items-center justify-between shadow-2xl z-20">
-                <div className="flex items-center gap-3">
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping absolute"></span>
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 relative"></span>
-                  <span className="text-white text-xs font-bold tracking-wider uppercase">Open to Opportunities</span>
-                </div>
-                <span className="text-zinc-400 text-xs font-mono">2026</span>
               </div>
             </motion.div>
           </div>
@@ -80,7 +70,7 @@ const About = () => {
           >
             Hello, I'm <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-300 to-zinc-500 drop-shadow-[0_0_30px_rgba(255,255,255,0.3)]">
-              Sushmita Dasari
+              Balaji Sivakumar
             </span>
           </motion.h2>
           
@@ -91,7 +81,7 @@ const About = () => {
             transition={{ duration: 0.7, delay: 0.4 }}
             className="text-base md:text-lg font-normal leading-relaxed text-zinc-300 max-w-2xl drop-shadow mb-12"
           >
-            A passionate Full-Stack Developer dedicated to crafting clean, functional, and highly scalable web applications. Specializing in high-performance architectures, intuitive user experiences, and robust backend pipelines.
+            Dynamic Digital Marketing Manager with a proven track record in strategic content creation and data analytics. Expert in leveraging social media platforms to boost engagement by over 50% and implementing SEO strategies that increase web traffic by 40%. Skilled in brand identity development, CRM management, and high-impact campaign execution.
           </motion.p>
 
           {/* Quick Stats Grid with Scale-in Animation */}
@@ -102,18 +92,18 @@ const About = () => {
             className="grid grid-cols-1 sm:grid-cols-3 gap-5 pt-6 border-t border-zinc-800/80"
           >
             <div className="p-5 rounded-2xl bg-zinc-900/60 border border-zinc-800/80 backdrop-blur-xl hover:border-zinc-500 transition-all duration-300 group">
-              <h4 className="text-white text-2xl font-black tracking-tight mb-1 group-hover:translate-x-1 transition-transform">Full-Stack</h4>
-              <p className="text-zinc-400 text-xs font-mono uppercase tracking-wider">Architecture</p>
+              <h4 className="text-white text-2xl font-black tracking-tight mb-1 group-hover:translate-x-1 transition-transform">Digital Strategy</h4>
+              <p className="text-zinc-400 text-xs font-mono uppercase tracking-wider">Campaigns & Ads</p>
             </div>
             
             <div className="p-5 rounded-2xl bg-zinc-900/60 border border-zinc-800/80 backdrop-blur-xl hover:border-zinc-500 transition-all duration-300 group">
-              <h4 className="text-white text-2xl font-black tracking-tight mb-1 group-hover:translate-x-1 transition-transform">React & Node</h4>
-              <p className="text-zinc-400 text-xs font-mono uppercase tracking-wider">Core Tech</p>
+              <h4 className="text-white text-2xl font-black tracking-tight mb-1 group-hover:translate-x-1 transition-transform">SEO & Analytics</h4>
+              <p className="text-zinc-400 text-xs font-mono uppercase tracking-wider">GA4 & SEMRush</p>
             </div>
             
             <div className="p-5 rounded-2xl bg-zinc-900/60 border border-zinc-800/80 backdrop-blur-xl hover:border-zinc-500 transition-all duration-300 group sm:col-span-1 col-span-1">
-              <h4 className="text-white text-2xl font-black tracking-tight mb-1 group-hover:translate-x-1 transition-transform">Scalable</h4>
-              <p className="text-zinc-400 text-xs font-mono uppercase tracking-wider">Systems</p>
+              <h4 className="text-white text-2xl font-black tracking-tight mb-1 group-hover:translate-x-1 transition-transform">Brand Growth</h4>
+              <p className="text-zinc-400 text-xs font-mono uppercase tracking-wider">Community Scaling</p>
             </div>
           </motion.div>
 

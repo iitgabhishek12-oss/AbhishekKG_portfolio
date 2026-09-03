@@ -41,7 +41,7 @@ const Preloader = ({ onComplete }) => {
               // INITIALIZING SYSTEM
             </span>
             <span className="text-zinc-500 font-mono text-xs tracking-widest">
-              PORTFOLIO 2026
+              PORTFOLIO
             </span>
           </div>
 
@@ -54,12 +54,12 @@ const Preloader = ({ onComplete }) => {
               className="overflow-hidden"
             >
               <h1 className="text-4xl sm:text-6xl md:text-7xl font-black text-white tracking-tighter uppercase mb-4">
-                Sushmita <span className="text-zinc-600">Dasari</span>
+                Balaji <span className="text-zinc-600">Sivakumar</span>
               </h1>
             </motion.div>
 
             <p className="text-zinc-400 font-mono text-xs md:text-sm tracking-widest uppercase mb-12">
-              Full-Stack AI & ML Engineer
+              Digital Marketing Manager & Growth Specialist
             </p>
 
             {/* Massive Numbers Percentage */}

@@ -4,60 +4,60 @@ import { motion } from 'framer-motion';
 const Skills = () => {
   const skillsData = [
     {
-      category: 'Frontend Development',
-      skills: ['React', 'JavaScript', 'TypeScript', 'HTML5', 'CSS3', 'Tailwind CSS', 'Bootstrap'],
+      category: 'Marketing Strategy & Branding',
+      skills: ['Branding', 'Digital Strategy', 'Campaign Management', 'Market Research', 'Community Engagement'],
     },
     {
-      category: 'Backend Development',
-      skills: ['Node.js', 'Express.js', 'Java', 'Python', 'REST APIs', 'JWT Auth', 'MySQL', 'MongoDB'],
+      category: 'SEO & Analytics',
+      skills: ['SEO', 'SEM', 'GA4 (Google Analytics)', 'SEMRush', 'Data Analytics', 'Performance Reporting', 'CRM'],
     },
     {
-      category: 'AI & Machine Learning',
-      skills: ['Machine Learning', 'NLP', 'Generative AI', 'LLMs', 'Computer Vision', 'Prompt Engineering'],
+      category: 'Social Media & Content',
+      skills: ['Social Media Marketing', 'Content Creation', 'Copywriting', 'Community Management', 'Email Marketing', 'WhatsApp Marketing', 'Influencer Management'],
     },
     {
-      category: 'Tools & Cloud',
-      skills: ['Git', 'GitHub', 'Docker', 'Postman', 'Linux', 'CI/CD', 'AWS', 'Figma'],
+      category: 'Tools & Creative Suite',
+      skills: ['Meta Ads Manager', 'Google Ads', 'Mailchimp', 'Adobe Photoshop', 'Adobe Premiere Pro', 'Adobe Illustrator', 'Canva', 'CapCut', 'ChatGPT', 'Claude AI'],
     },
   ];
 
-  // Duplicate skills arrays to ensure seamless infinite looping without gaps
-  const rowOneSkills = [...skillsData[0].skills, ...skillsData[0].skills, ...skillsData[1].skills, ...skillsData[1].skills];
-  const rowTwoSkills = [...skillsData[2].skills, ...skillsData[2].skills, ...skillsData[3].skills, ...skillsData[3].skills];
+  // Flatten and duplicate skills arrays to ensure seamless infinite looping without gaps
+  const allSkills = skillsData.flatMap(group => group.skills);
+  const duplicatedSkills = [...allSkills, ...allSkills];
 
   return (
-    <section id="skills" className="relative w-full bg-black py-28 md:py-36 overflow-hidden border-t border-zinc-900">
+    <section id="skills" className="relative w-full bg-black py-12 md:py-16 overflow-hidden border-t border-zinc-900">
       
       {/* Cinematic Ambient Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-zinc-800/10 rounded-full blur-[180px] pointer-events-none" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 mb-16">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 mb-10">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
-          className="text-center max-w-2xl mx-auto"
+          className="text-center max-w-3xl mx-auto"
         >
-          <div className="mb-4 inline-block">
+          <div className="mb-3 inline-block">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 backdrop-blur-xl border border-white/10 shadow-xl">
               <span className="w-2 h-2 rounded-full bg-zinc-400"></span>
-              <span className="text-zinc-300 text-xs font-mono tracking-widest uppercase">Technical Stack</span>
+              <span className="text-zinc-300 text-xs font-mono tracking-widest uppercase">Core Competencies</span>
             </span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-4 tracking-tight">
-            Technologies I Work With
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-3 tracking-tight">
+            Digital Marketing Expertise
           </h2>
 
           <p className="text-sm md:text-base text-zinc-400 font-normal">
-            Full-stack expertise across modern web development, artificial intelligence, and cloud infrastructure.
+            Comprehensive skill set in driving growth, building brands, and leveraging data-driven strategies across digital platforms.
           </p>
         </motion.div>
       </div>
 
       {/* Marquee Tickers Container */}
-      <div className="relative w-full flex flex-col gap-6 overflow-hidden py-4">
+      <div className="relative w-full flex flex-col gap-4 overflow-hidden py-2">
         
         {/* Gradient Fade Edges for Cinematic Look */}
         <div className="absolute top-0 bottom-0 left-0 w-24 bg-gradient-to-r from-black to-transparent z-20 pointer-events-none" />
@@ -68,10 +68,10 @@ const Skills = () => {
           <motion.div
             initial={{ x: 0 }}
             animate={{ x: "-50%" }}
-            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+            transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
             className="flex gap-4 shrink-0 items-center"
           >
-            {rowOneSkills.map((skill, idx) => (
+            {duplicatedSkills.map((skill, idx) => (
               <div
                 key={idx}
                 className="group px-6 py-3 rounded-2xl bg-zinc-950 border border-zinc-800/80 hover:border-white/40 shadow-[0_10px_30px_rgba(0,0,0,0.8)] backdrop-blur-xl transition-all duration-300 hover:scale-105 cursor-default"
@@ -85,14 +85,14 @@ const Skills = () => {
         </div>
 
         {/* Marquee Row 2: Right to Left */}
-        <div className="flex overflow-hidden whitespace-nowrap select-none">
+        <div className="flex overflow-hidden whitespace-nowrap select-none mt-2">
           <motion.div
             initial={{ x: "-50%" }}
             animate={{ x: 0 }}
-            transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
+            transition={{ duration: 35, repeat: Infinity, ease: "linear" }}
             className="flex gap-4 shrink-0 items-center"
           >
-            {rowTwoSkills.map((skill, idx) => (
+            {[...duplicatedSkills].reverse().map((skill, idx) => (
               <div
                 key={idx}
                 className="group px-6 py-3 rounded-2xl bg-zinc-950 border border-zinc-800/80 hover:border-white/40 shadow-[0_10px_30px_rgba(0,0,0,0.8)] backdrop-blur-xl transition-all duration-300 hover:scale-105 cursor-default"

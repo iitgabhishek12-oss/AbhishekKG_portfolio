@@ -48,18 +48,18 @@ const Hero = () => {
   const currentTime = scrollProgress * 10;
   
   // Dynamic Title & Right-Side Message Sequence
-  let currentTitle = "CREATIVE DEVELOPER";
-  let rightSideHeading = "TURNING IDEAS INTO REALITY";
-  let rightSideSubtext = "Available for hire. Building fast, responsive web applications using modern tech stacks.";
+  let currentTitle = "DIGITAL MARKETING MANAGER";
+  let rightSideHeading = "TURNING STRATEGY INTO GROWTH";
+  let rightSideSubtext = "Available for hire. Boosting engagement by 50%+ and web traffic via targeted SEO & high-impact campaigns.";
   
   if (currentTime > 2.5 && currentTime <= 6) {
-    currentTitle = "FULL STACK DEV";
-    rightSideHeading = "I BUILD SCALABLE APPLICATIONS";
-    rightSideSubtext = "Specialized in high-performance web applications using React, Node.js & Tailwind CSS.";
+    currentTitle = "GROWTH & SEO EXPERT";
+    rightSideHeading = "SCALING BRAND PRESENCE";
+    rightSideSubtext = "Specialized in organic social media growth, cross-platform video editing, and data-driven marketing.";
   } else if (currentTime > 6) {
-    currentTitle = "SCALABLE SYSTEMS";
-    rightSideHeading = "ROBUST BACKEND ARCHITECTURE";
-    rightSideSubtext = "Architecting robust backend pipelines, cloud microservices, and database optimization.";
+    currentTitle = "CAMPAIGN ARCHITECT";
+    rightSideHeading = "ROBUST BRANDING & ANALYTICS";
+    rightSideSubtext = "Executing CRM management, Meta & Google Ads, and full-scale digital identity development.";
   }
 
   return (
@@ -88,13 +88,8 @@ const Hero = () => {
         </video>
 
         {/* --- SPOTLIGHT LIGHTING EFFECT --- */}
-        {/* 1. Bright Center Spotlight Glow to illuminate the face and middle area */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.18)_0%,transparent_65%)] z-10 pointer-events-none" />
-        
-        {/* 2. Heavy Dark Vignette around the edges (dim around, bright in center) */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,rgba(0,0,0,0.85)_85%)] z-10 pointer-events-none" />
-        
-        {/* 3. Deep side gradients to keep left/right text areas contrasting sharply */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-transparent to-black/90 z-10 pointer-events-none" />
 
         {/* Main Content Layout */}
@@ -113,7 +108,7 @@ const Hero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-zinc-300 text-sm md:text-base font-bold tracking-[0.25em] uppercase mb-3 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]"
               >
-                HI, I'M <span className="text-white font-black underline decoration-white underline-offset-4">SUSHMITA</span>
+                HI, I'M <span className="text-white font-black underline decoration-white underline-offset-4">BALAJI SIVAKUMAR</span>
               </motion.div>
 
               <div className="overflow-hidden py-1 min-h-[80px] sm:min-h-[110px] flex items-center">
@@ -134,7 +129,7 @@ const Hero = () => {
               </div>
             </div>
 
-            {/* EMPTY CENTER GAP (Span 2 columns to protect center lighting and face visibility) */}
+            {/* EMPTY CENTER GAP (Span 2 columns) */}
             <div className="hidden lg:block lg:col-span-2" />
 
             {/* RIGHT SIDE (Span 5 columns) */}
@@ -173,7 +168,7 @@ const Hero = () => {
                 href="#projects" 
                 className="px-7 py-3.5 text-xs sm:text-sm rounded-full bg-white text-black font-extrabold hover:bg-zinc-200 transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.25)] transform hover:scale-105 text-center"
               >
-                View My Work
+                View Campaigns
               </a>
               <a 
                 href="#contact" 
