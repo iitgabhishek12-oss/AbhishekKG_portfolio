@@ -39,8 +39,8 @@ const Contact = () => {
       return;
     }
 
-    // Target primary email from Abhishek's portfolio brief
-    const recipientEmail = "abhishekiitg1@gmail.com";
+    // Target email updated to mr.abhishekaaa@gmail.com
+    const recipientEmail = "mr.abhishekaaa@gmail.com";
     const subject = encodeURIComponent(`Portfolio Message from ${formData.firstName} ${formData.lastName}`);
     const body = encodeURIComponent(
       `Name: ${formData.firstName} ${formData.lastName}\n` +
@@ -86,16 +86,11 @@ const Contact = () => {
             <div className="text-xs font-bold tracking-[0.2em] uppercase opacity-90">
               Get In Touch
             </div>
-            {/* Added Contact Info Display with both emails */}
+            {/* Added Contact Info Display with active email */}
             <div className="flex flex-wrap items-center gap-6 text-xs md:text-sm font-bold opacity-90">
-              <div className="flex flex-col gap-1">
-                <a href="mailto:abhishekiitg1@gmail.com" className="hover:underline flex items-center gap-1.5">
-                  <span>✉️</span> abhishekiitg1@gmail.com
-                </a>
-                <a href="mailto:mr.abhishekaaa@gmail.com" className="hover:underline flex items-center gap-1.5">
-                  <span>✉️</span> mr.abhishekaaa@gmail.com
-                </a>
-              </div>
+              <a href="mailto:mr.abhishekaaa@gmail.com" className="hover:underline flex items-center gap-1.5">
+                <span>✉️</span> mr.abhishekaaa@gmail.com
+              </a>
               <a href="tel:+916392359603" className="hover:underline flex items-center gap-1.5">
                 <span>📞</span> +91-6392359603
               </a>

@@ -26,7 +26,7 @@ const Footer = () => {
 
       {/* Middle Huge Text */}
       <div className="w-full flex justify-center items-center py-20 md:py-24 overflow-hidden">
-        <h2 className="text-[12vw] md:text-[9vw] leading-none font-sans font-bold tracking-tighter select-none text-[#f4f4f4] w-full text-center truncate px-2">
+        <h2 className="text-[12vw] md:text-[9vw] leading-none font-sans font-bold tracking-tighter lowercase select-none text-[#f4f4f4] w-full text-center truncate px-2">
           Abhishek KG
         </h2>
       </div>
@@ -40,8 +40,7 @@ const Footer = () => {
           </p>
         </div>
         
-        <div className="flex flex-col gap-2 md:items-center">
-          <a href="mailto:abhishekiitg1@gmail.com" className="underline hover:text-white transition-colors underline-offset-4 decoration-1 lowercase">abhishekiitg1@gmail.com</a>
+        <div className="flex flex-col gap-1 md:items-center">
           <a href="mailto:mr.abhishekaaa@gmail.com" className="underline hover:text-white transition-colors underline-offset-4 decoration-1 lowercase">mr.abhishekaaa@gmail.com</a>
         </div>
         
