@@ -1,234 +1,137 @@
-import React, { useRef, useState } from 'react';
-import { motion, useScroll, useSpring, useMotionValueEvent } from 'framer-motion';
-
-const TagCard = ({ number, title, text, className, aosDelay, aosType, pathLength, containerRef }) => {
-  const ref = useRef(null);
-  const [isActive, setIsActive] = useState(false);
-
-  useMotionValueEvent(pathLength, "change", (latest) => {
-    if (!ref.current || !containerRef.current) return;
-
-    const cardRect = ref.current.getBoundingClientRect();
-    const containerRect = containerRef.current.getBoundingClientRect();
-
-    const cardTopRelativeToContainer = cardRect.top - containerRect.top;
-    const containerHeight = containerRect.height;
-
-    // Trigger when the line tip is 50px into the card
-    const triggerY = cardTopRelativeToContainer + 50;
-    const lineTipY = latest * containerHeight;
-
-    if (lineTipY >= triggerY && !isActive) {
-      setIsActive(true);
-    } else if (lineTipY < triggerY && isActive) {
-      setIsActive(false);
-    }
-  });
-
-  return (
-    <div
-      ref={ref}
-      data-aos={aosType || "fade-up"}
-      data-aos-delay={aosDelay}
-      className={`w-72 sm:w-80 rounded-[2rem] p-2 relative flex flex-col items-center hover:scale-[1.02] transition-all duration-700 z-10 ${className} ${
-        isActive 
-          ? 'bg-[#ff2a2a] border-red-400 shadow-[0_20px_50px_rgba(255,42,42,0.4)]' 
-          : 'bg-white border border-gray-200 shadow-[0_15px_40px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)]'
-      }`}
-    >
-      {/* The hole punch */}
-      <div className="w-5 h-5 bg-gradient-to-br from-gray-300 to-gray-100 rounded-full shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)] absolute top-4 border border-gray-300 z-10 flex items-center justify-center">
-        <div className="w-2 h-2 bg-gray-800 rounded-full opacity-20"></div>
-      </div>
-
-      {/* Inner container */}
-      <div className={`w-full h-full rounded-[1.5rem] mt-8 p-8 flex flex-col min-h-[220px] transition-colors duration-700 ${
-        isActive ? 'bg-red-700/50' : 'bg-[#f4f4f4]'
-      }`}>
-        <span className={`text-xl font-bold mb-2 font-serif italic transition-colors duration-700 ${
-          isActive ? 'text-red-200' : 'text-gray-400'
-        }`}>
-          {number}
-        </span>
-
-        <h3 className={`text-2xl font-black mb-3 tracking-tight transition-colors duration-700 ${
-          isActive ? 'text-white' : 'text-gray-900'
-        }`}>
-          {title}
-        </h3>
-
-        <p className={`text-sm leading-relaxed font-medium transition-colors duration-700 ${
-          isActive ? 'text-red-100' : 'text-gray-500'
-        }`}>
-          {text}
-        </p>
-      </div>
-    </div>
-  );
-};
+import React, { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 
 const Expertise = () => {
-  const containerRef = useRef(null);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-50px" });
 
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start center", "end center"]
-  });
-
-  const pathLength = useSpring(scrollYProgress, { stiffness: 60, damping: 20, restDelta: 0.001 });
+  const roadmapSteps = [
+    { 
+      number: "01", 
+      title: "Frontend Development", 
+      tech: "React & Tailwind",
+      desc: "Architecting responsive, high-performance UI components."
+    },
+    { 
+      number: "02", 
+      title: "Backend Development", 
+      tech: "Node.js & Databases",
+      desc: "Building secure REST APIs and robust data pipelines."
+    },
+    { 
+      number: "03", 
+      title: "AI & Machine Learning", 
+      tech: "Generative AI & LLMs",
+      desc: "Integrating intelligent models and automated workflows."
+    },
+    { 
+      number: "04", 
+      title: "Cloud & Deployment", 
+      tech: "Docker & CI/CD",
+      desc: "Containerizing systems and ensuring seamless production."
+    },
+  ];
 
   return (
-    <section
-      id="expertise"
-      ref={containerRef}
-      className="bg-white pt-24 pb-32 px-6 md:px-12 w-full relative overflow-hidden font-sans bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:80px_80px]"
-    >
-      <div className="max-w-6xl mx-auto relative md:min-h-[1450px]">
+    <section id="expertise" ref={ref} className="relative bg-black py-32 px-6 md:px-12 w-full overflow-hidden font-sans border-t border-zinc-900">
+      
+      {/* Dynamic Moving Gradient Mesh Background */}
+      <motion.div 
+        animate={{ 
+          scale: [1, 1.2, 1],
+          opacity: [0.15, 0.25, 0.15],
+        }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-gradient-to-r from-zinc-200 via-zinc-600 to-zinc-800 rounded-full blur-[160px] pointer-events-none" 
+      />
 
-        {/* Header Content */}
-        <div data-aos="fade-up" className="md:absolute top-10 left-0 md:w-[420px] lg:w-[450px] z-20 mb-16 md:mb-0">
-          <div className="inline-block border border-gray-300 rounded-full px-5 py-1.5 text-sm text-gray-600 font-bold mb-8 shadow-sm bg-white">
-            My Expertise
-          </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 leading-[1.1] mb-6 tracking-tight relative">
-            Data, Analytics, ML & Product Strategy
-            {/* Hand-drawn arrow */}
-            <svg className="absolute -bottom-10 right-10 w-12 h-12 text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" className="hidden" />
-              <path d="M4 4 Q 10 10 15 15 M 15 15 L 10 15 M 15 15 L 15 10" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </h2>
+      <div className="max-w-6xl mx-auto relative z-20">
+
+        {/* Section Header */}
+        <div className="text-center max-w-2xl mx-auto mb-20">
+          <motion.div 
+            initial={{ opacity: 0, y: 15 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/5 backdrop-blur-xl border border-white/10 mb-4 shadow-xl"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping" />
+            <span className="text-zinc-300 text-xs font-mono tracking-widest uppercase">// Engineering Roadmap</span>
+          </motion.div>
+
+          <motion.h2 
+            initial={{ opacity: 0, y: 25, filter: 'blur(8px)' }}
+            animate={isInView ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight"
+          >
+            Core Execution Root Map
+          </motion.h2>
         </div>
 
-        {/* Desktop SVG Animated Dashed Line */}
-        <svg
-          className="hidden md:block absolute top-0 left-0 w-full h-[1450px] pointer-events-none z-0"
-          viewBox="0 0 1000 1450"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M 650,200 C 400,300 200,400 300,600 C 400,800 750,750 700,950 C 650,1150 400,1150 300,1300"
-            fill="none"
-            stroke="#cbd5e1"
-            strokeWidth="2"
-            strokeDasharray="8 10"
-          />
-
-          <mask id="path-mask">
-            <motion.path
-              d="M 650,200 C 400,300 200,400 300,600 C 400,800 750,750 700,950 C 650,1150 400,1150 300,1300"
-              fill="none"
-              stroke="white"
-              strokeWidth="20"
-              style={{ pathLength }}
-            />
-          </mask>
-
-          <path
-            d="M 650,200 C 400,300 200,400 300,600 C 400,800 750,750 700,950 C 650,1150 400,1150 300,1300"
-            fill="none"
-            stroke="black"
-            strokeWidth="2"
-            strokeDasharray="8 10"
-            mask="url(#path-mask)"
-            className="drop-shadow-sm"
-          />
-        </svg>
-
-        {/* Mobile Animated Vertical Dashed Line */}
-        <svg
-          className="md:hidden absolute top-0 left-[50%] -translate-x-1/2 w-4 h-[100%] pointer-events-none z-0"
-          viewBox="0 0 4 100"
-          preserveAspectRatio="none"
-        >
-          <path
-            d="M 2,0 L 2,100"
-            fill="none"
-            stroke="#cbd5e1"
-            strokeWidth="4"
-            strokeDasharray="4 6"
-            vectorEffect="non-scaling-stroke"
-          />
-          <mask id="path-mask-mobile">
-            <motion.path
-              d="M 2,0 L 2,100"
-              fill="none"
-              stroke="white"
-              strokeWidth="4"
-              style={{ pathLength }}
-              vectorEffect="non-scaling-stroke"
-            />
-          </mask>
-          <path
-            d="M 2,0 L 2,100"
-            fill="none"
-            stroke="black"
-            strokeWidth="4"
-            strokeDasharray="4 6"
-            mask="url(#path-mask-mobile)"
-            vectorEffect="non-scaling-stroke"
-          />
-        </svg>
-
-        {/* Cards Container */}
-        <div className="flex flex-col gap-8 md:gap-12 items-center md:block relative z-10 w-full pt-4 md:pt-0 pb-12 md:pb-0">
-
-          <TagCard
-            number="01"
-            title="Data, Analytics & ML"
-            text="Building end-to-end customer intelligence pipelines, uplift optimization engines with causal ML (S/T/X-learners), and demand forecasting models using Python, SQL, Scikit-learn, Excel, and Power BI."
-            className="md:absolute md:top-[10px] md:right-[5%] lg:right-[8%] rotate-2 md:rotate-6"
-            aosType="fade-left"
-            aosDelay="100"
-            pathLength={pathLength}
-            containerRef={containerRef}
-          />
+        {/* Root Map Timeline / Flow Container */}
+        <div className="relative">
           
-          <TagCard
-            number="02"
-            title="Product Management & Strategy"
-            text="Defining product vision using JTBD, RICE prioritization, MVP execution, and AI launch decision frameworks. Experienced in scaling financial apps, AI discovery tools, and campus ecosystems."
-            className="md:absolute md:top-[480px] md:left-[5%] lg:left-[8%] -rotate-2 md:-rotate-6"
-            aosType="fade-right"
-            aosDelay="200"
-            pathLength={pathLength}
-            containerRef={containerRef}
-          />
+          {/* Connecting Line (Desktop) */}
+          <div className="hidden lg:block absolute top-1/2 left-0 w-full h-[2px] bg-gradient-to-r from-zinc-800 via-zinc-500 to-zinc-800 -translate-y-1/2 z-0" />
 
-          <TagCard
-            number="03"
-            title="AI Evaluation & Governance"
-            text="Enforcing rigorous LLM evaluation, schema validation, trustworthiness checks, and synthetic signal auditing to bridge experimental AI workflows with reliable production standards."
-            className="md:absolute md:top-[780px] md:right-[5%] lg:right-[12%] rotate-1 md:rotate-3"
-            aosType="fade-left"
-            aosDelay="300"
-            pathLength={pathLength}
-            containerRef={containerRef}
-          />
+          {/* Steps Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
+            {roadmapSteps.map((step, index) => (
+              <motion.div
+                key={step.number}
+                initial={{ opacity: 0, y: 30 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.2 + index * 0.15, ease: [0.16, 1, 0.3, 1] }}
+                whileHover={{ y: -8, scale: 1.02 }}
+                className="group relative"
+              >
+                {/* Smooth Rotating Multi-Color/Gradient Animated Outer Border Effect */}
+                <div 
+                  className="absolute -inset-1.5 bg-gradient-to-r from-zinc-200 via-zinc-600 to-white rounded-[2.2rem] blur-md opacity-40 group-hover:opacity-100 transition duration-1000 animate-spin pointer-events-none" 
+                  style={{ animationDuration: '8s' }}
+                />
 
-          <TagCard
-            number="04"
-            title="Process Engineering & Optimization"
-            text="Applying first-principles mathematical modeling, Aspen Plus/HYSYS simulations, Monte Carlo stochastic forecasts, and dynamic control engineering grounded in a B.Tech Chemical background."
-            className="md:absolute md:top-[1150px] md:left-[15%] lg:left-[22%] -rotate-1 md:-rotate-3"
-            aosType="fade-right"
-            aosDelay="400"
-            pathLength={pathLength}
-            containerRef={containerRef}
-          />
+                {/* Card Container */}
+                <div className="relative rounded-3xl p-6 bg-zinc-950 border border-zinc-800/80 transition-all duration-500 overflow-hidden backdrop-blur-xl shadow-[0_20px_40px_rgba(0,0,0,0.8)] flex flex-col justify-between h-full">
+                  
+                  {/* Subtle Hover Gradient Shine */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/[0.06] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
-          {/* Hand-drawn end text */}
-          <div
-            data-aos="fade-in"
-            data-aos-delay="600"
-            className="hidden md:block absolute top-[1380px] left-[55%] font-['Caveat',cursive] text-3xl text-gray-600 rotate-6"
-          >
-            Driving impact at IIT Guwahati!
+                  <div>
+                    {/* Step Number & Glowing Node */}
+                    <div className="flex justify-between items-center mb-6">
+                      <span className="text-zinc-400 font-mono text-xs tracking-widest font-bold group-hover:text-white transition-colors">
+                        // ROOT {step.number}
+                      </span>
+                      <div className="w-3 h-3 rounded-full bg-zinc-800 border border-zinc-700 group-hover:bg-white group-hover:border-white group-hover:shadow-[0_0_15px_rgba(255,255,255,0.9)] transition-all duration-300" />
+                    </div>
+
+                    <h3 className="text-xl font-black text-white tracking-tight mb-2 group-hover:translate-x-1 transition-transform duration-300">
+                      {step.title}
+                    </h3>
+
+                    <p className="text-zinc-400 text-xs leading-relaxed font-normal mb-6">
+                      {step.desc}
+                    </p>
+                  </div>
+
+                  <div className="pt-4 border-t border-zinc-900 mt-2">
+                    <span className="text-zinc-300 text-xs font-mono tracking-wider bg-white/5 px-2.5 py-1 rounded-md border border-white/5 group-hover:border-white/20 transition-all">
+                      {step.tech}
+                    </span>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
           </div>
 
         </div>
 
       </div>
+
+      {/* Bottom subtle divider */}
+      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-zinc-800 to-transparent pointer-events-none z-30" />
     </section>
   );
 };

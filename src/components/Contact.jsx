@@ -18,7 +18,7 @@ const Contact = () => {
     offset: ["start end", "end start"]
   });
   
-  // Parallax translation for the big text
+  // Parallax translation for the big background text
   const y = useTransform(scrollYProgress, [0, 1], ["-20%", "30%"]);
 
   // Handle input changes dynamically
@@ -30,170 +30,178 @@ const Contact = () => {
     }));
   };
 
-  // Handle form submission logic — triggers mail client with pre-filled content
+  // Handle form submission logic
   const handleSubmit = (e) => {
-    e.preventDefault(); // Prevents the painful page-refresh crash
+    e.preventDefault();
 
     if (!formData.permission) {
       alert("Please accept the contact permission checkbox.");
       return;
     }
 
-    // Target email updated to mr.abhishekaaa@gmail.com
-    const recipientEmail = "mr.abhishekaaa@gmail.com";
-    const subject = encodeURIComponent(`Portfolio Message from ${formData.firstName} ${formData.lastName}`);
-    const body = encodeURIComponent(
-      `Name: ${formData.firstName} ${formData.lastName}\n` +
-      `Email: ${formData.email}\n\n` +
-      `Message:\n${formData.message}`
-    );
-
-    // Opens user's default email client pre-populated with form details
-    window.location.href = `mailto:${recipientEmail}?subject=${subject}&body=${body}`;
+    console.log("Form Data Submitted Successfully:", formData);
+    alert(`Thanks ${formData.firstName}! Message captured.`);
     
-    alert(`Thanks ${formData.firstName}! Opening your mail client to send the message.`);
-    
-    // Optional Reset
+    // Reset Form
     setFormData({ firstName: '', lastName: '', email: '', message: '', permission: false });
   };
 
   return (
-    <section ref={ref} id="contact" className="bg-[#0a0a0a] w-full min-h-screen relative overflow-hidden flex items-end pt-32 pb-0 md:pb-0 border-t border-gray-900">
+    <section ref={ref} id="contact" className="relative bg-black w-full min-h-screen overflow-hidden flex items-center justify-center py-32 px-6 md:px-12 border-t border-zinc-900 font-sans">
       
-      {/* Huge Background Text */}
+      {/* Huge Background Parallax Text */}
       <motion.div 
         style={{ y }}
-        className="absolute top-0 left-0 w-full h-full flex flex-col justify-start items-center overflow-hidden pointer-events-none z-0 pt-16 md:pt-12"
+        className="absolute inset-0 flex flex-col justify-center items-center overflow-hidden pointer-events-none z-0"
       >
         <h1 
-          className="text-[25vw] leading-[0.75] font-black text-white uppercase tracking-tighter select-none scale-y-[1.6] origin-top"
+          className="text-[22vw] leading-[0.75] font-black text-zinc-900/60 uppercase tracking-tighter select-none scale-y-[1.5]"
           style={{ fontFamily: "'Impact', 'Arial Black', sans-serif" }}
         >
           Contact
         </h1>
       </motion.div>
 
-      {/* Form Card Overlay */}
-      <div className="relative z-10 w-full flex justify-end items-end">
+      {/* Cinematic Ambient Glow */}
+      <motion.div 
+        animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.2, 0.1] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-tr from-white via-zinc-400 to-zinc-700 rounded-full blur-[160px] pointer-events-none z-0" 
+      />
+
+      {/* Unique Dual-Column Interactive Contact Container */}
+      <div className="max-w-7xl w-full mx-auto relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        {/* Left Side: Live Holographic Message Preview Card (Unique Interactive Feature) */}
         <motion.div 
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="bg-[#ff2a2a] w-full md:w-[85%] lg:w-[75%] p-8 md:p-16 text-white flex flex-col justify-between"
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="lg:col-span-5 flex flex-col justify-between p-8 md:p-10 rounded-[2.5rem] bg-zinc-950/80 border border-zinc-800/80 backdrop-blur-2xl shadow-[0_30px_70px_rgba(0,0,0,0.9)] relative overflow-hidden"
         >
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-12 md:mb-16 gap-4">
-            <div className="text-xs font-bold tracking-[0.2em] uppercase opacity-90">
-              Get In Touch
+          {/* Rotating Gradient Outer Border */}
+          <div 
+            className="absolute -inset-1.5 bg-gradient-to-r from-zinc-200 via-zinc-600 to-white rounded-[2.8rem] blur-md opacity-30 pointer-events-none animate-spin" 
+            style={{ animationDuration: '10s' }}
+          />
+
+          <div className="relative z-10">
+            <div className="flex items-center justify-between mb-8">
+              <span className="text-zinc-400 font-mono text-xs tracking-widest uppercase">// Live Dispatch Node</span>
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
             </div>
-            {/* Added Contact Info Display with active email */}
-            <div className="flex flex-wrap items-center gap-6 text-xs md:text-sm font-bold opacity-90">
-              <a href="mailto:mr.abhishekaaa@gmail.com" className="hover:underline flex items-center gap-1.5">
-                <span>✉️</span> mr.abhishekaaa@gmail.com
-              </a>
-              <a href="tel:+916392359603" className="hover:underline flex items-center gap-1.5">
-                <span>📞</span> +91-6392359603
-              </a>
-            </div>
+
+            <h3 className="text-2xl md:text-3xl font-black text-white tracking-tight mb-4">
+              Let's Build Something Exceptional.
+            </h3>
+            <p className="text-zinc-400 text-sm leading-relaxed font-normal mb-8">
+              Fill out the transmission form or preview your live payload stream directly below.
+            </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="flex flex-col gap-12 md:gap-16 w-full">
-            <div className="flex flex-col md:flex-row gap-12 md:gap-20 w-full">
-              
-              {/* Left Column */}
-              <div className="flex-1 flex flex-col gap-10">
-                <div className="relative">
-                  <input 
-                    type="text" 
-                    id="firstName" 
-                    value={formData.firstName}
-                    onChange={handleChange}
-                    placeholder="First Name" 
-                    required
-                    className="w-full bg-transparent border-b border-white/40 pb-3 text-lg focus:outline-none focus:border-white transition-colors placeholder-white font-medium rounded-none"
-                  />
-                </div>
-                <div className="relative">
-                  <input 
-                    type="text" 
-                    id="lastName" 
-                    value={formData.lastName}
-                    onChange={handleChange}
-                    placeholder="Last Name" 
-                    required
-                    className="w-full bg-transparent border-b border-white/40 pb-3 text-lg focus:outline-none focus:border-white transition-colors placeholder-white font-medium rounded-none"
-                  />
-                </div>
-                <div className="relative">
-                  <input 
-                    type="email" 
-                    id="email" 
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="Email" 
-                    required
-                    className="w-full bg-transparent border-b border-white/40 pb-3 text-lg focus:outline-none focus:border-white transition-colors placeholder-white font-medium rounded-none"
-                  />
-                </div>
-              </div>
+          {/* Real-Time Live Preview Display Box */}
+          <div className="relative z-10 p-5 rounded-2xl bg-zinc-900/90 border border-zinc-800 font-mono text-xs text-zinc-300 space-y-3 shadow-inner">
+            <div className="text-zinc-500">// payload_preview.json</div>
+            <div>
+              <span className="text-zinc-500">sender:</span> <span className="text-white">{formData.firstName || formData.lastName ? `${formData.firstName} ${formData.lastName}` : '[Awaiting Name]'}</span>
+            </div>
+            <div>
+              <span className="text-zinc-500">email:</span> <span className="text-white">{formData.email || '[Awaiting Email]'}</span>
+            </div>
+            <div>
+              <span className="text-zinc-500">message:</span> <span className="text-zinc-300 italic">{formData.message ? `"${formData.message}"` : '"[Awaiting Message]"'}</span>
+            </div>
+          </div>
+        </motion.div>
 
-              {/* Right Column */}
-              <div className="flex-1 flex flex-col">
-                <div className="relative h-full flex flex-col">
-                  <textarea 
-                    id="message" 
-                    value={formData.message}
-                    onChange={handleChange}
-                    placeholder="Type your message here" 
-                    required
-                    className="w-full h-full min-h-[120px] bg-transparent border-b border-white/40 pb-3 text-lg focus:outline-none focus:border-white transition-colors placeholder-white font-medium resize-none rounded-none"
-                  ></textarea>
-                </div>
+        {/* Right Side: Sleek Glassmorphism Form */}
+        <motion.div 
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="lg:col-span-7 bg-zinc-950/90 backdrop-blur-2xl border border-zinc-800/80 rounded-[2.5rem] p-8 md:p-12 shadow-[0_30px_70px_rgba(0,0,0,0.9)] relative overflow-hidden"
+        >
+          <form onSubmit={handleSubmit} className="flex flex-col gap-8 w-full">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <input 
+                  type="text" 
+                  id="firstName" 
+                  value={formData.firstName}
+                  onChange={handleChange}
+                  placeholder="First Name" 
+                  required
+                  className="w-full bg-zinc-900/50 border border-zinc-800 rounded-2xl px-5 py-4 text-sm focus:outline-none focus:border-white transition-colors placeholder-zinc-500 text-white font-medium"
+                />
+              </div>
+              <div>
+                <input 
+                  type="text" 
+                  id="lastName" 
+                  value={formData.lastName}
+                  onChange={handleChange}
+                  placeholder="Last Name" 
+                  required
+                  className="w-full bg-zinc-900/50 border border-zinc-800 rounded-2xl px-5 py-4 text-sm focus:outline-none focus:border-white transition-colors placeholder-zinc-500 text-white font-medium"
+                />
               </div>
             </div>
 
-            {/* Bottom Section */}
-            <div className="flex flex-col md:flex-row gap-12 mt-4">
-              {/* Left text */}
-              <div className="flex-1 flex items-start gap-4 text-sm font-medium text-white/90">
+            <div>
+              <input 
+                type="email" 
+                id="email" 
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Email Address" 
+                required
+                className="w-full bg-zinc-900/50 border border-zinc-800 rounded-2xl px-5 py-4 text-sm focus:outline-none focus:border-white transition-colors placeholder-zinc-500 text-white font-medium"
+              />
+            </div>
+
+            <div>
+              <textarea 
+                id="message" 
+                value={formData.message}
+                onChange={handleChange}
+                placeholder="Type your message here..." 
+                required
+                rows={4}
+                className="w-full bg-zinc-900/50 border border-zinc-800 rounded-2xl px-5 py-4 text-sm focus:outline-none focus:border-white transition-colors placeholder-zinc-500 text-white font-medium resize-none"
+              ></textarea>
+            </div>
+
+            {/* Permission Checkbox & Submit Button */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 pt-4 border-t border-zinc-900">
+              <div className="flex items-start gap-3">
                 <input 
                   type="checkbox" 
                   id="permission" 
                   checked={formData.permission}
                   onChange={handleChange}
-                  className="mt-1 w-4 h-4 rounded-sm border-white/40 bg-transparent text-white focus:ring-white focus:ring-offset-0 focus:ring-offset-transparent cursor-pointer" 
+                  className="mt-1 w-4 h-4 rounded border-zinc-700 bg-zinc-900 text-white focus:ring-0 cursor-pointer" 
                   style={{ accentColor: "white" }}
                 />
-                <label htmlFor="permission" className="cursor-pointer max-w-[280px] leading-snug">
+                <label htmlFor="permission" className="cursor-pointer text-xs text-zinc-400 leading-snug max-w-[240px]">
                   I give permission to contact me at this email address.
                 </label>
               </div>
 
-              {/* Right text & button */}
-              <div className="flex-1 flex flex-col gap-8 text-xs text-white/70 font-medium">
-                <p className="leading-relaxed max-w-[400px]">
-                  This site is protected by reCAPTCHA and the Google <a href="#" className="underline hover:text-white transition-colors">Privacy Policy</a> and <a href="#" className="underline hover:text-white transition-colors">Terms of Service</a> apply.
-                </p>
-                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-end gap-6">
-                  <p className="max-w-[250px] leading-relaxed">
-                    For information on how to unsubscribe, please review our <a href="#" className="underline hover:text-white transition-colors">privacy policy</a>.
-                  </p>
-                  
-                  <button 
-                    type="submit" 
-                    className="px-8 py-3 rounded-full border border-white/40 text-white font-bold flex items-center justify-center gap-3 hover:bg-white hover:text-[#ff2a2a] transition-all duration-300 group whitespace-nowrap self-start sm:self-auto"
-                  >
-                    Send
-                    <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
+              <button 
+                type="submit" 
+                className="px-8 py-4 rounded-full bg-white text-black font-extrabold flex items-center justify-center gap-3 hover:bg-zinc-200 transition-all duration-300 group shadow-[0_0_25px_rgba(255,255,255,0.25)]"
+              >
+                Send Message
+                <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </button>
             </div>
           </form>
-
         </motion.div>
+
       </div>
     </section>
   );

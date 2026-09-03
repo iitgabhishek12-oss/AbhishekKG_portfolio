@@ -1,154 +1,189 @@
 import React, { useRef, useEffect, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-// Adjusted import path for the video
-import heroVideo from '../assets/hero_video/hero_video.mp4';
+import heroVideo from '../assets/hero video/herovideo.mp4';
 
 const Hero = () => {
   const videoRef = useRef(null);
-  const [isPlaying, setIsPlaying] = useState(false); // Initialized to false (paused)
-  const [isMuted, setIsMuted] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
 
   useEffect(() => {
     AOS.init({
-      duration: 1000,
-      once: true,
+      duration: 800,
+      once: false,
       easing: 'ease-out'
     });
 
-    // Ensure the video is explicitly paused on mount
-    if (videoRef.current) {
-      videoRef.current.pause();
-    }
+    let ticking = false;
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const section = document.getElementById('home');
+          const video = videoRef.current;
+          if (section && video) {
+            const rect = section.getBoundingClientRect();
+            const sectionHeight = section.offsetHeight - window.innerHeight;
+            const scrollDistance = -rect.top;
+            const progress = Math.max(0, Math.min(1, scrollDistance / sectionHeight));
+            
+            setScrollProgress(progress);
+
+            if (video.duration && !video.seeking) {
+              video.currentTime = progress * video.duration;
+            }
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Switches between play and pause states for the video
-  const togglePlay = (e) => {
-    e.stopPropagation();
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-        setIsPlaying(false);
-      } else {
-        videoRef.current.play();
-        setIsPlaying(true);
-      }
-    }
-  };
+  const currentTime = scrollProgress * 10;
+  
+  // Dynamic Title & Right-Side Message Sequence
+  let currentTitle = "CREATIVE DEVELOPER";
+  let rightSideHeading = "TURNING IDEAS INTO REALITY";
+  let rightSideSubtext = "Available for hire. Building fast, responsive web applications using modern tech stacks.";
+  
+  if (currentTime > 2.5 && currentTime <= 6) {
+    currentTitle = "FULL STACK DEV";
+    rightSideHeading = "I BUILD SCALABLE APPLICATIONS";
+    rightSideSubtext = "Specialized in high-performance web applications using React, Node.js & Tailwind CSS.";
+  } else if (currentTime > 6) {
+    currentTitle = "SCALABLE SYSTEMS";
+    rightSideHeading = "ROBUST BACKEND ARCHITECTURE";
+    rightSideSubtext = "Architecting robust backend pipelines, cloud microservices, and database optimization.";
+  }
 
   return (
-    <section id="home" className="relative w-full h-screen overflow-hidden bg-black">
-      {/* Background Video - Adjusted mobile object-position to focus on the right */}
-      <video
-        ref={videoRef}
-        loop
-        muted={isMuted}
-        playsInline
-        className="absolute top-0 left-0 w-full h-full object-cover object-[85%_center] md:object-[center_right] z-0"
-      >
-        <source src={heroVideo} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-
-      {/* Dark overlay factor for optimized readability without completely muddying up the red tones */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-transparent z-10 pointer-events-none" />
-
-      {/* Content Container */}
-      <div className="absolute inset-0 z-20 px-6 md:px-12 max-w-7xl mx-auto flex flex-col md:flex-row justify-center md:justify-between items-start text-left w-full h-full pt-28 md:pt-[12%]">
+    <section id="home" className="relative w-full h-[600vh] bg-black">
+      {/* Sticky viewport container */}
+      <div className="sticky top-0 w-full h-screen overflow-hidden">
         
-        {/* Left Side: Text and Buttons - Shifted higher up */}
-        <div className="flex flex-col items-start text-left max-w-lg lg:max-w-xl w-full">
+        {/* Crystal-Clear HD Video Layer with Max Sharpness & GPU Acceleration */}
+        <video
+          ref={videoRef}
+          muted
+          playsInline
+          preload="auto"
+          onLoadedMetadata={() => setIsVideoLoaded(true)}
+          className={`absolute inset-0 w-full h-full object-cover z-0 transition-opacity duration-1000 ${
+            isVideoLoaded ? 'opacity-100' : 'opacity-0'
+          }`}
+          style={{
+            filter: 'contrast(1.25) saturate(1.1) brightness(1.05)',
+            WebkitTransform: 'translateZ(0)',
+            transform: 'translateZ(0)'
+          }}
+        >
+          <source src={heroVideo} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+
+        {/* --- SPOTLIGHT LIGHTING EFFECT --- */}
+        {/* 1. Bright Center Spotlight Glow to illuminate the face and middle area */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.18)_0%,transparent_65%)] z-10 pointer-events-none" />
+        
+        {/* 2. Heavy Dark Vignette around the edges (dim around, bright in center) */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_30%,rgba(0,0,0,0.85)_85%)] z-10 pointer-events-none" />
+        
+        {/* 3. Deep side gradients to keep left/right text areas contrasting sharply */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-transparent to-black/90 z-10 pointer-events-none" />
+
+        {/* Main Content Layout */}
+        <div className="absolute inset-0 z-25 px-6 sm:px-12 md:px-16 lg:px-20 max-w-[1440px] mx-auto flex flex-col justify-between w-full h-full py-10 pointer-events-none">
           
-          {/* Main Heading */}
-          <h1 
-            data-aos="fade-up"
-            data-aos-delay="50"
-            className="text-white text-4xl sm:text-5xl md:text-6xl font-black mb-5 tracking-tight leading-[1.05]"
-          >
-            Hi, I’m Abhishek <br /> 
-            <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-white via-white to-white/90 drop-shadow-[0_2px_10px_rgba(0,0,0,0.15)]">
-              Data, Analytics, Product, ML
-            </span>
-          </h1>
+          {/* Top spacer */}
+          <div className="w-full h-8" />
 
-          {/* Subheading */}
-          <p 
-            data-aos="fade-up"
-            data-aos-delay="200"
-            className="text-white/90 text-sm md:text-base lg:text-lg font-medium mb-8 max-w-sm md:max-w-md leading-relaxed drop-shadow-sm"
-          >
-            B.Tech Chemical Engineering @ IIT Guwahati. Specializing in end-to-end data intelligence, machine learning pipelines, and AI-driven product strategies.
-          </p>
-
-          {/* Buttons */}
-          <div 
-            data-aos="fade-up"
-            data-aos-delay="400"
-            className="flex flex-row items-center gap-4 w-full"
-          >
-            {/* Primary Button */}
-            <a 
-              href="#projects" 
-              className="px-6 py-2.5 md:px-7 md:py-3 text-xs md:text-sm rounded-full bg-white text-black font-bold hover:bg-neutral-100 transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg inline-block text-center"
-            >
-              View My Work
-            </a>
+          {/* SPLIT LAYOUT */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 items-center justify-between w-full my-auto gap-8 pointer-events-auto">
             
-            {/* Secondary Button */}
-            <a 
-              href="#contact" 
-              className="px-6 py-2.5 md:px-7 md:py-3 text-xs md:text-sm rounded-full bg-black/10 border border-white text-white font-bold hover:bg-white/10 transition-all duration-300 backdrop-blur-md transform hover:-translate-y-0.5 inline-block text-center"
-            >
-              Contact Me
-            </a>
+            {/* LEFT SIDE (Span 5 columns): Name & Title */}
+            <div className="lg:col-span-5 flex flex-col items-start justify-center">
+              <motion.div 
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="text-zinc-300 text-sm md:text-base font-bold tracking-[0.25em] uppercase mb-3 drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]"
+              >
+                HI, I'M <span className="text-white font-black underline decoration-white underline-offset-4">SUSHMITA</span>
+              </motion.div>
+
+              <div className="overflow-hidden py-1 min-h-[80px] sm:min-h-[110px] flex items-center">
+                <AnimatePresence mode="wait">
+                  <motion.h1 
+                    key={currentTitle}
+                    initial={{ y: 35, opacity: 0, filter: 'blur(10px)' }}
+                    animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
+                    exit={{ y: -35, opacity: 0, filter: 'blur(10px)' }}
+                    transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                    className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter drop-shadow-[0_10px_25px_rgba(0,0,0,0.95)]"
+                  >
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-200 to-zinc-400">
+                      {currentTitle}
+                    </span>
+                  </motion.h1>
+                </AnimatePresence>
+              </div>
+            </div>
+
+            {/* EMPTY CENTER GAP (Span 2 columns to protect center lighting and face visibility) */}
+            <div className="hidden lg:block lg:col-span-2" />
+
+            {/* RIGHT SIDE (Span 5 columns) */}
+            <div className="lg:col-span-5 flex flex-col items-start lg:items-end text-left lg:text-right justify-center">
+              <div className="min-h-[110px] flex flex-col justify-center items-start lg:items-end">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={rightSideHeading}
+                    initial={{ opacity: 0, y: 20, filter: 'blur(8px)' }}
+                    animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                    exit={{ opacity: 0, y: -20, filter: 'blur(8px)' }}
+                    transition={{ duration: 0.4 }}
+                    className="flex flex-col items-start lg:items-end"
+                  >
+                    <h3 className="text-zinc-300 text-xs sm:text-sm font-mono tracking-[0.3em] uppercase mb-2.5 drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)] font-bold">
+                      // {rightSideHeading}
+                    </h3>
+                    <p className="text-zinc-100 text-sm sm:text-base md:text-lg font-medium max-w-sm drop-shadow-[0_4px_12px_rgba(0,0,0,0.95)] leading-relaxed">
+                      {rightSideSubtext}
+                    </p>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+            </div>
+
           </div>
-        </div>
 
-      </div>
+          {/* Bottom Bar: Scroll Tip & Action CTAs */}
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center w-full gap-4 pointer-events-auto pb-2">
+            <p className="text-zinc-400 text-xs tracking-widest uppercase font-medium hidden sm:block drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
+              ↓ Scroll to scrub timeline
+            </p>
 
-      {/* Play/Pause Controller */}
-      <div 
-        data-aos="zoom-in"
-        data-aos-delay="600"
-        className="absolute top-32 right-12 md:top-36 md:right-20 z-30 flex flex-col items-center justify-center gap-1 cursor-pointer group"
-        onClick={togglePlay}
-      >
-        <div className="w-14 h-14 md:w-16 md:h-16 rounded-full border border-white/20 bg-black/20 backdrop-blur-md flex justify-center items-center group-hover:scale-105 group-hover:bg-white group-hover:border-white transition-all duration-300 shadow-xl">
-          {isPlaying ? (
-            // Pause Icon
-            <svg className="w-6 h-6 md:w-7 md:h-7 text-white group-hover:text-black transition-colors" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 5.25v13.5m-7.5-13.5v13.5" />
-            </svg>
-          ) : (
-            // Play Icon
-            <svg className="w-6 h-6 md:w-7 md:h-7 text-white group-hover:text-black transition-colors" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 010 1.972l-11.54 6.347a1.125 1.125 0 01-1.667-.986V5.653z" />
-            </svg>
-          )}
-        </div>
-        <span className="text-white text-[8px] md:text-[10px] font-extrabold tracking-widest uppercase opacity-60 group-hover:opacity-100 transition-opacity">
-          {isPlaying ? "Pause" : "Play"}
-        </span>
-      </div>
+            <div className="flex items-center gap-3 w-full sm:w-auto">
+              <a 
+                href="#projects" 
+                className="px-7 py-3.5 text-xs sm:text-sm rounded-full bg-white text-black font-extrabold hover:bg-zinc-200 transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.25)] transform hover:scale-105 text-center"
+              >
+                View My Work
+              </a>
+              <a 
+                href="#contact" 
+                className="px-7 py-3.5 text-xs sm:text-sm rounded-full bg-black/60 border border-white/40 text-white font-extrabold hover:bg-white/20 transition-all duration-300 backdrop-blur-xl shadow-2xl transform hover:scale-105 text-center"
+              >
+                Contact Me
+              </a>
+            </div>
+          </div>
 
-      {/* Scroll Indicator */}
-      <div 
-        data-aos="fade-up"
-        data-aos-delay="800"
-        className="hidden md:block absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 pointer-events-none"
-      >
-        <div className="animate-bounce">
-          <svg 
-            className="w-5 h-5 text-white opacity-70" 
-            fill="none" 
-            strokeLinecap="round" 
-            strokeLinejoin="round" 
-            strokeWidth="2.5" 
-            viewBox="0 0 24 24" 
-            stroke="currentColor"
-          >
-            <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-          </svg>
         </div>
       </div>
     </section>

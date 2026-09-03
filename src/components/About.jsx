@@ -1,92 +1,127 @@
-import React, { useEffect } from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import React, { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import stackImage from '../assets/about/image.png';
 
 const About = () => {
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-      easing: 'ease-out'
-    });
-  }, []);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="about" className="bg-[#ff2a2a] pt-20 pb-40 px-6 md:px-12 w-full relative overflow-hidden font-sans">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-16 items-start">
+    <section id="about" ref={ref} className="relative bg-black pt-36 pb-36 px-6 md:px-12 w-full overflow-hidden font-sans border-t border-zinc-900">
+      
+      {/* Cinematic Ambient Glow */}
+      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[600px] h-[600px] bg-zinc-800/15 rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute bottom-10 right-10 w-[400px] h-[400px] bg-zinc-900/40 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24 items-center relative z-20">
         
-        {/* Left Side: ID Badge */}
-        <div className="flex flex-col items-center w-full md:w-[350px] shrink-0 mt-12 md:mt-0">
-          <div data-aos="drop-bounce" className="relative flex justify-center w-full">
-            {/* Lanyard string */}
-            <div className="absolute -top-32 left-1/2 w-3 h-40 bg-black transform -translate-x-1/2 shadow-inner z-0"></div>
-            {/* Lanyard clip */}
-            <div className="absolute -top-6 left-1/2 w-6 h-12 bg-gray-300 rounded border border-gray-400 transform -translate-x-1/2 z-10 shadow-[0_2px_10px_rgba(0,0,0,0.3)]"></div>
+        {/* Left Side: Animated Gradient Border & Animated Image Reveal */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.9, filter: 'blur(10px)' }}
+          animate={isInView ? { opacity: 1, scale: 1, filter: 'blur(0px)' } : {}}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          className="flex flex-col items-center w-full lg:w-[420px] shrink-0"
+        >
+          <div className="relative group w-full max-w-[340px]">
+            {/* Smooth Rotating Multi-Color/Gradient Animated Outer Border */}
+            <div className="absolute -inset-2 bg-gradient-to-r from-zinc-200 via-zinc-600 to-white rounded-[3rem] blur-lg opacity-60 group-hover:opacity-100 transition duration-1000 animate-spin" style={{ animationDuration: '8s' }}></div>
             
-            {/* Badge Card */}
-            <div className="bg-gray-900 w-full max-w-[280px] rounded-2xl p-3 shadow-[0_20px_40px_rgba(0,0,0,0.4)] relative z-20 transform -rotate-3 hover:rotate-0 transition-transform duration-500">
-              {/* Cutout Hole */}
-              <div className="absolute -top-3 left-1/2 w-16 h-6 bg-gray-900 rounded-t-xl transform -translate-x-1/2 flex justify-center items-center">
-                <div className="w-8 h-2 bg-black/30 rounded-full shadow-inner"></div>
-              </div>
-              {/* Image Container */}
-              <div className="w-full aspect-[3/4] overflow-hidden rounded-xl bg-gray-800 border-2 border-transparent">
+            {/* Main Portrait Frame with Subtle Floating Animation */}
+            <motion.div 
+              animate={{ y: [-8, 8, -8] }}
+              transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+              className="relative bg-zinc-950 border border-zinc-800/80 rounded-[2.8rem] p-3.5 shadow-[0_35px_70px_rgba(0,0,0,0.95)] overflow-hidden"
+            >
+              <div className="w-full aspect-[4/5] overflow-hidden rounded-[2.2rem] bg-zinc-900 relative">
+                
+                {/* Gradient Shimmer Overlay Effect on Image */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10 pointer-events-none"></div>
+
                 <img 
                   src={stackImage} 
-                  alt="Abhishek Kumar Gond" 
-                  className="w-full h-full object-cover"
+                  alt="Sushmita Dasari" 
+                  className="w-full h-full object-cover filter contrast-115 grayscale-[10%] group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
                 />
               </div>
-            </div>
+              
+              {/* Floating Live Status Pill */}
+              <div className="absolute bottom-6 left-6 right-6 p-4 bg-black/70 backdrop-blur-2xl border border-white/15 rounded-2xl flex items-center justify-between shadow-2xl z-20">
+                <div className="flex items-center gap-3">
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping absolute"></span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 relative"></span>
+                  <span className="text-white text-xs font-bold tracking-wider uppercase">Open to Opportunities</span>
+                </div>
+                <span className="text-zinc-400 text-xs font-mono">2026</span>
+              </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
 
-        {/* Right Side: Info Content */}
-        <div data-aos="fade-left" data-aos-delay="200" className="flex-1 text-white mt-8 md:mt-0 relative z-20">
-          <h2 className="text-4xl md:text-5xl font-black text-black mb-4">Hello!</h2>
+        {/* Right Side: Staggered Cinematic Text Content */}
+        <div className="flex-1 text-white text-left relative z-20">
           
-          <p className="text-lg font-bold mb-6 leading-relaxed max-w-3xl text-red-50">
-            Hi, my name is <span className="text-black text-xl font-black mx-1 tracking-wide uppercase">Abhishek Kumar Gond</span>, a B.Tech Chemical Engineering student at the Indian Institute of Technology, Guwahati, specializing in Data Science, Analytics, Machine Learning, and Product Thinking.
-          </p>
+          {/* Badge Tag */}
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            animate={isInView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 backdrop-blur-xl border border-white/10 mb-6 shadow-xl"
+          >
+            <span className="w-2 h-2 rounded-full bg-zinc-400"></span>
+            <span className="text-zinc-300 text-xs font-mono tracking-widest uppercase">// System Profile</span>
+          </motion.div>
 
-          <p className="text-base text-red-100 mb-8 leading-relaxed max-w-3xl font-medium">
-            Bridging analytical engineering foundations with advanced statistical modeling and product strategy. Experienced in building end-to-end customer intelligence pipelines, uplift optimization engines, demand forecasting models, and AI-native product frameworks.
-          </p>
+          {/* Title Header */}
+          <motion.h2 
+            initial={{ opacity: 0, y: 30, filter: 'blur(8px)' }}
+            animate={isInView ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight mb-6 drop-shadow-md leading-[1.05]"
+          >
+            Hello, I'm <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-zinc-300 to-zinc-500 drop-shadow-[0_0_30px_rgba(255,255,255,0.3)]">
+              Sushmita Dasari
+            </span>
+          </motion.h2>
+          
+          {/* Bio Description */}
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.4 }}
+            className="text-base md:text-lg font-normal leading-relaxed text-zinc-300 max-w-2xl drop-shadow mb-12"
+          >
+            A passionate Full-Stack Developer dedicated to crafting clean, functional, and highly scalable web applications. Specializing in high-performance architectures, intuitive user experiences, and robust backend pipelines.
+          </motion.p>
 
-          {/* Highlights / Quick Stats Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-3xl">
-            <div className="bg-black/20 backdrop-blur-md p-4 rounded-xl border border-white/10">
-              <span className="block text-2xl font-black text-black">7.58 CGPA</span>
-              <span className="text-xs text-red-100 font-medium">B.Tech @ IIT Guwahati</span>
+          {/* Quick Stats Grid with Scale-in Animation */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.5 }}
+            className="grid grid-cols-1 sm:grid-cols-3 gap-5 pt-6 border-t border-zinc-800/80"
+          >
+            <div className="p-5 rounded-2xl bg-zinc-900/60 border border-zinc-800/80 backdrop-blur-xl hover:border-zinc-500 transition-all duration-300 group">
+              <h4 className="text-white text-2xl font-black tracking-tight mb-1 group-hover:translate-x-1 transition-transform">Full-Stack</h4>
+              <p className="text-zinc-400 text-xs font-mono uppercase tracking-wider">Architecture</p>
             </div>
-            <div className="bg-black/20 backdrop-blur-md p-4 rounded-xl border border-white/10">
-              <span className="block text-2xl font-black text-black">SPARDHA 2026</span>
-              <span className="text-xs text-red-100 font-medium">1st Place / Sports Secretary</span>
+            
+            <div className="p-5 rounded-2xl bg-zinc-900/60 border border-zinc-800/80 backdrop-blur-xl hover:border-zinc-500 transition-all duration-300 group">
+              <h4 className="text-white text-2xl font-black tracking-tight mb-1 group-hover:translate-x-1 transition-transform">React & Node</h4>
+              <p className="text-zinc-400 text-xs font-mono uppercase tracking-wider">Core Tech</p>
             </div>
-            <div className="bg-black/20 backdrop-blur-md p-4 rounded-xl border border-white/10">
-              <span className="block text-2xl font-black text-black">67.6% MAPE</span>
-              <span className="text-xs text-red-100 font-medium">Max Improvement in Forecasts</span>
+            
+            <div className="p-5 rounded-2xl bg-zinc-900/60 border border-zinc-800/80 backdrop-blur-xl hover:border-zinc-500 transition-all duration-300 group sm:col-span-1 col-span-1">
+              <h4 className="text-white text-2xl font-black tracking-tight mb-1 group-hover:translate-x-1 transition-transform">Scalable</h4>
+              <p className="text-zinc-400 text-xs font-mono uppercase tracking-wider">Systems</p>
             </div>
-          </div>
+          </motion.div>
 
         </div>
       </div>
 
-      {/* Torn paper divider at bottom */}
-      <div className="absolute bottom-0 left-0 w-full pointer-events-none z-30 transform translate-y-1">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="w-full h-12 md:h-20 fill-white">
-          <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.08,130.83,119.62,189.5,99.8,242.79,81.82,282.88,63.6,321.39,56.44Z"></path>
-        </svg>
-      </div>
-
-      {/* Decorative stars */}
-      <div className="absolute top-10 right-10 md:right-20 text-black opacity-30 animate-pulse">
-        <svg className="w-16 h-16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l2.5 8.5L23 12l-8.5 2.5L12 23l-2.5-8.5L1 12l8.5-2.5z"/></svg>
-      </div>
-      <div className="absolute bottom-32 left-4 md:left-20 text-black opacity-30 animate-pulse" style={{ animationDelay: '1s' }}>
-        <svg className="w-20 h-20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0l2.5 8.5L23 12l-8.5 2.5L12 23l-2.5-8.5L1 12l8.5-2.5z"/></svg>
-      </div>
+      {/* Subtle bottom border transition divider */}
+      <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-zinc-800 to-transparent pointer-events-none z-30" />
     </section>
   );
 };
